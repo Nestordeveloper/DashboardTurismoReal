@@ -16,6 +16,10 @@ namespace DashboardTurismoReal
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+
+            // Configurar el subproceso principal como STA
+            Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
+
             // Crear una instancia de IConfiguration para leer la configuración
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)

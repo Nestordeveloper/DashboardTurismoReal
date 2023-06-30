@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tituloVReservas = new Label();
             dataGridViewReservas = new DataGridView();
             btnCargarDatos = new Button();
-            panelDptoUpdate = new Panel();
-            comboBoxRol = new ComboBox();
+            panelStatusUpdate = new Panel();
+            btnActualizarEstado = new Button();
+            comboBoxEstadoReserva = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            comboBoxRut = new ComboBox();
+            comboBoxReserva = new ComboBox();
             labelDptoUpdate = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewReservas).BeginInit();
-            panelDptoUpdate.SuspendLayout();
+            panelStatusUpdate.SuspendLayout();
             SuspendLayout();
             // 
             // tituloVReservas
@@ -65,14 +66,14 @@
             dataGridViewReservas.BackgroundColor = SystemColors.Control;
             dataGridViewReservas.BorderStyle = BorderStyle.None;
             dataGridViewReservas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridViewReservas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewReservas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewReservas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewReservas.GridColor = Color.DarkGoldenrod;
             dataGridViewReservas.Location = new Point(67, 112);
@@ -81,10 +82,10 @@
             dataGridViewReservas.RowHeadersVisible = false;
             dataGridViewReservas.RowHeadersWidth = 51;
             dataGridViewReservas.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.SelectionBackColor = Color.Goldenrod;
-            dataGridViewCellStyle6.SelectionForeColor = Color.White;
-            dataGridViewReservas.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Goldenrod;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewReservas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewReservas.RowTemplate.Height = 24;
             dataGridViewReservas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewReservas.Size = new Size(969, 385);
@@ -102,28 +103,39 @@
             btnCargarDatos.UseVisualStyleBackColor = true;
             btnCargarDatos.Click += btnCargarDatos_Click;
             // 
-            // panelDptoUpdate
+            // panelStatusUpdate
             // 
-            panelDptoUpdate.AutoSize = true;
-            panelDptoUpdate.BorderStyle = BorderStyle.Fixed3D;
-            panelDptoUpdate.Controls.Add(comboBoxRol);
-            panelDptoUpdate.Controls.Add(label2);
-            panelDptoUpdate.Controls.Add(label1);
-            panelDptoUpdate.Controls.Add(comboBoxRut);
-            panelDptoUpdate.Controls.Add(labelDptoUpdate);
-            panelDptoUpdate.Location = new Point(67, 525);
-            panelDptoUpdate.Name = "panelDptoUpdate";
-            panelDptoUpdate.Size = new Size(693, 172);
-            panelDptoUpdate.TabIndex = 10;
+            panelStatusUpdate.AutoSize = true;
+            panelStatusUpdate.BorderStyle = BorderStyle.Fixed3D;
+            panelStatusUpdate.Controls.Add(btnActualizarEstado);
+            panelStatusUpdate.Controls.Add(comboBoxEstadoReserva);
+            panelStatusUpdate.Controls.Add(label2);
+            panelStatusUpdate.Controls.Add(label1);
+            panelStatusUpdate.Controls.Add(comboBoxReserva);
+            panelStatusUpdate.Controls.Add(labelDptoUpdate);
+            panelStatusUpdate.Location = new Point(67, 525);
+            panelStatusUpdate.Name = "panelStatusUpdate";
+            panelStatusUpdate.Size = new Size(693, 172);
+            panelStatusUpdate.TabIndex = 10;
             // 
-            // comboBoxRol
+            // btnActualizarEstado
             // 
-            comboBoxRol.Anchor = AnchorStyles.Left;
-            comboBoxRol.FormattingEnabled = true;
-            comboBoxRol.Location = new Point(297, 129);
-            comboBoxRol.Name = "comboBoxRol";
-            comboBoxRol.Size = new Size(151, 28);
-            comboBoxRol.TabIndex = 11;
+            btnActualizarEstado.Location = new Point(532, 129);
+            btnActualizarEstado.Name = "btnActualizarEstado";
+            btnActualizarEstado.Size = new Size(119, 29);
+            btnActualizarEstado.TabIndex = 12;
+            btnActualizarEstado.Text = "Actualizar";
+            btnActualizarEstado.UseVisualStyleBackColor = true;
+            btnActualizarEstado.Click += btnActualizarEstado_Click;
+            // 
+            // comboBoxEstadoReserva
+            // 
+            comboBoxEstadoReserva.Anchor = AnchorStyles.Left;
+            comboBoxEstadoReserva.FormattingEnabled = true;
+            comboBoxEstadoReserva.Location = new Point(297, 129);
+            comboBoxEstadoReserva.Name = "comboBoxEstadoReserva";
+            comboBoxEstadoReserva.Size = new Size(151, 28);
+            comboBoxEstadoReserva.TabIndex = 11;
             // 
             // label2
             // 
@@ -147,14 +159,14 @@
             label1.TabIndex = 9;
             label1.Text = "Actualizar Estado Reserva";
             // 
-            // comboBoxRut
+            // comboBoxReserva
             // 
-            comboBoxRut.Anchor = AnchorStyles.Left;
-            comboBoxRut.FormattingEnabled = true;
-            comboBoxRut.Location = new Point(297, 78);
-            comboBoxRut.Name = "comboBoxRut";
-            comboBoxRut.Size = new Size(151, 28);
-            comboBoxRut.TabIndex = 8;
+            comboBoxReserva.Anchor = AnchorStyles.Left;
+            comboBoxReserva.FormattingEnabled = true;
+            comboBoxReserva.Location = new Point(297, 78);
+            comboBoxReserva.Name = "comboBoxReserva";
+            comboBoxReserva.Size = new Size(151, 28);
+            comboBoxReserva.TabIndex = 8;
             // 
             // labelDptoUpdate
             // 
@@ -172,7 +184,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1107, 756);
-            Controls.Add(panelDptoUpdate);
+            Controls.Add(panelStatusUpdate);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewReservas);
             Controls.Add(tituloVReservas);
@@ -182,8 +194,8 @@
             Text = "FormVReserva";
             Load += FormVReservas_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewReservas).EndInit();
-            panelDptoUpdate.ResumeLayout(false);
-            panelDptoUpdate.PerformLayout();
+            panelStatusUpdate.ResumeLayout(false);
+            panelStatusUpdate.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,11 +205,12 @@
         private Label tituloVReservas;
         private DataGridView dataGridViewReservas;
         private Button btnCargarDatos;
-        private Panel panelDptoUpdate;
-        private ComboBox comboBoxRol;
+        private Panel panelStatusUpdate;
+        private ComboBox comboBoxEstadoReserva;
         private Label label2;
         private Label label1;
-        private ComboBox comboBoxRut;
+        private ComboBox comboBoxReserva;
         private Label labelDptoUpdate;
+        private Button btnActualizarEstado;
     }
 }

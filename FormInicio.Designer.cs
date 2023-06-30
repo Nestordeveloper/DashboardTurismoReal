@@ -29,205 +29,206 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
-            this.lblIngresos = new System.Windows.Forms.Label();
-            this.lblDepartamentos = new System.Windows.Forms.Label();
-            this.lblReservas = new System.Windows.Forms.Label();
-            this.labelIngresos = new System.Windows.Forms.Label();
-            this.labelDeptos = new System.Windows.Forms.Label();
-            this.labelReservas = new System.Windows.Forms.Label();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            this.SuspendLayout();
+            lblIngresos = new Label();
+            lblDepartamentos = new Label();
+            lblReservas = new Label();
+            labelIngresos = new Label();
+            labelDeptos = new Label();
+            labelReservas = new Label();
+            pictureBox14 = new PictureBox();
+            pictureBox15 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            pictureBox13 = new PictureBox();
+            pictureBox11 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            SuspendLayout();
             // 
             // lblIngresos
             // 
-            this.lblIngresos.AutoSize = true;
-            this.lblIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngresos.Location = new System.Drawing.Point(760, 89);
-            this.lblIngresos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(57, 39);
-            this.lblIngresos.TabIndex = 23;
-            this.lblIngresos.Text = "$0";
+            lblIngresos.AutoSize = true;
+            lblIngresos.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblIngresos.Location = new Point(760, 111);
+            lblIngresos.Margin = new Padding(4, 0, 4, 0);
+            lblIngresos.Name = "lblIngresos";
+            lblIngresos.Size = new Size(57, 39);
+            lblIngresos.TabIndex = 23;
+            lblIngresos.Text = "$0";
             // 
             // lblDepartamentos
             // 
-            this.lblDepartamentos.AutoSize = true;
-            this.lblDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamentos.Location = new System.Drawing.Point(499, 89);
-            this.lblDepartamentos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDepartamentos.Name = "lblDepartamentos";
-            this.lblDepartamentos.Size = new System.Drawing.Size(37, 39);
-            this.lblDepartamentos.TabIndex = 22;
-            this.lblDepartamentos.Text = "0";
+            lblDepartamentos.AutoSize = true;
+            lblDepartamentos.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDepartamentos.Location = new Point(499, 111);
+            lblDepartamentos.Margin = new Padding(4, 0, 4, 0);
+            lblDepartamentos.Name = "lblDepartamentos";
+            lblDepartamentos.Size = new Size(37, 39);
+            lblDepartamentos.TabIndex = 22;
+            lblDepartamentos.Text = "0";
             // 
             // lblReservas
             // 
-            this.lblReservas.AutoSize = true;
-            this.lblReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReservas.Location = new System.Drawing.Point(189, 89);
-            this.lblReservas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblReservas.Name = "lblReservas";
-            this.lblReservas.Size = new System.Drawing.Size(37, 39);
-            this.lblReservas.TabIndex = 21;
-            this.lblReservas.Text = "0";
+            lblReservas.AutoSize = true;
+            lblReservas.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblReservas.Location = new Point(189, 111);
+            lblReservas.Margin = new Padding(4, 0, 4, 0);
+            lblReservas.Name = "lblReservas";
+            lblReservas.Size = new Size(37, 39);
+            lblReservas.TabIndex = 21;
+            lblReservas.Text = "0";
             // 
             // labelIngresos
             // 
-            this.labelIngresos.AutoSize = true;
-            this.labelIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIngresos.Location = new System.Drawing.Point(764, 56);
-            this.labelIngresos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelIngresos.Name = "labelIngresos";
-            this.labelIngresos.Size = new System.Drawing.Size(138, 17);
-            this.labelIngresos.TabIndex = 20;
-            this.labelIngresos.Text = "Total Ingresos ($)";
+            labelIngresos.AutoSize = true;
+            labelIngresos.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelIngresos.Location = new Point(764, 70);
+            labelIngresos.Margin = new Padding(4, 0, 4, 0);
+            labelIngresos.Name = "labelIngresos";
+            labelIngresos.Size = new Size(138, 17);
+            labelIngresos.TabIndex = 20;
+            labelIngresos.Text = "Total Ingresos ($)";
             // 
             // labelDeptos
             // 
-            this.labelDeptos.AutoSize = true;
-            this.labelDeptos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDeptos.Location = new System.Drawing.Point(459, 56);
-            this.labelDeptos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDeptos.Name = "labelDeptos";
-            this.labelDeptos.Size = new System.Drawing.Size(160, 17);
-            this.labelDeptos.TabIndex = 19;
-            this.labelDeptos.Text = "Total Departamentos";
+            labelDeptos.AutoSize = true;
+            labelDeptos.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDeptos.Location = new Point(459, 70);
+            labelDeptos.Margin = new Padding(4, 0, 4, 0);
+            labelDeptos.Name = "labelDeptos";
+            labelDeptos.Size = new Size(160, 17);
+            labelDeptos.TabIndex = 19;
+            labelDeptos.Text = "Total Departamentos";
             // 
             // labelReservas
             // 
-            this.labelReservas.AutoSize = true;
-            this.labelReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelReservas.Location = new System.Drawing.Point(151, 56);
-            this.labelReservas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelReservas.Name = "labelReservas";
-            this.labelReservas.Size = new System.Drawing.Size(118, 17);
-            this.labelReservas.TabIndex = 18;
-            this.labelReservas.Text = "Total Reservas";
+            labelReservas.AutoSize = true;
+            labelReservas.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelReservas.Location = new Point(151, 70);
+            labelReservas.Margin = new Padding(4, 0, 4, 0);
+            labelReservas.Name = "labelReservas";
+            labelReservas.Size = new Size(118, 17);
+            labelReservas.TabIndex = 18;
+            labelReservas.Text = "Total Reservas";
             // 
             // pictureBox14
             // 
-            this.pictureBox14.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(700, 25);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(55, 46);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 17;
-            this.pictureBox14.TabStop = false;
+            pictureBox14.BackColor = Color.DarkGoldenrod;
+            pictureBox14.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
+            pictureBox14.Location = new Point(700, 31);
+            pictureBox14.Margin = new Padding(4, 5, 4, 5);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(55, 57);
+            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox14.TabIndex = 17;
+            pictureBox14.TabStop = false;
             // 
             // pictureBox15
             // 
-            this.pictureBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox15.Location = new System.Drawing.Point(700, 37);
-            this.pictureBox15.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(237, 123);
-            this.pictureBox15.TabIndex = 16;
-            this.pictureBox15.TabStop = false;
+            pictureBox15.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox15.Location = new Point(700, 46);
+            pictureBox15.Margin = new Padding(4, 5, 4, 5);
+            pictureBox15.Name = "pictureBox15";
+            pictureBox15.Size = new Size(237, 153);
+            pictureBox15.TabIndex = 16;
+            pictureBox15.TabStop = false;
             // 
             // pictureBox12
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(395, 25);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(55, 46);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 15;
-            this.pictureBox12.TabStop = false;
+            pictureBox12.BackColor = Color.DarkGoldenrod;
+            pictureBox12.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
+            pictureBox12.Location = new Point(395, 31);
+            pictureBox12.Margin = new Padding(4, 5, 4, 5);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(55, 57);
+            pictureBox12.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox12.TabIndex = 15;
+            pictureBox12.TabStop = false;
             // 
             // pictureBox13
             // 
-            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox13.Location = new System.Drawing.Point(395, 37);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(237, 123);
-            this.pictureBox13.TabIndex = 14;
-            this.pictureBox13.TabStop = false;
+            pictureBox13.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox13.Location = new Point(395, 46);
+            pictureBox13.Margin = new Padding(4, 5, 4, 5);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(237, 153);
+            pictureBox13.TabIndex = 14;
+            pictureBox13.TabStop = false;
             // 
             // pictureBox11
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(87, 25);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(55, 46);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 13;
-            this.pictureBox11.TabStop = false;
+            pictureBox11.BackColor = Color.DarkGoldenrod;
+            pictureBox11.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
+            pictureBox11.Location = new Point(87, 31);
+            pictureBox11.Margin = new Padding(4, 5, 4, 5);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(55, 57);
+            pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox11.TabIndex = 13;
+            pictureBox11.TabStop = false;
             // 
             // pictureBox10
             // 
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(87, 37);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(237, 123);
-            this.pictureBox10.TabIndex = 12;
-            this.pictureBox10.TabStop = false;
+            pictureBox10.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox10.Location = new Point(87, 46);
+            pictureBox10.Margin = new Padding(4, 5, 4, 5);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(237, 153);
+            pictureBox10.TabIndex = 12;
+            pictureBox10.TabStop = false;
             // 
             // FormInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 655);
-            this.Controls.Add(this.lblIngresos);
-            this.Controls.Add(this.lblDepartamentos);
-            this.Controls.Add(this.lblReservas);
-            this.Controls.Add(this.labelIngresos);
-            this.Controls.Add(this.labelDeptos);
-            this.Controls.Add(this.labelReservas);
-            this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.pictureBox10);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormInicio";
-            this.Text = "FormInicio";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1029, 819);
+            Controls.Add(lblIngresos);
+            Controls.Add(lblDepartamentos);
+            Controls.Add(lblReservas);
+            Controls.Add(labelIngresos);
+            Controls.Add(labelDeptos);
+            Controls.Add(labelReservas);
+            Controls.Add(pictureBox14);
+            Controls.Add(pictureBox15);
+            Controls.Add(pictureBox12);
+            Controls.Add(pictureBox13);
+            Controls.Add(pictureBox11);
+            Controls.Add(pictureBox10);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FormInicio";
+            Text = "FormInicio";
+            Load += FormInicio_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblIngresos;
-        private System.Windows.Forms.Label lblDepartamentos;
-        private System.Windows.Forms.Label lblReservas;
-        private System.Windows.Forms.Label labelIngresos;
-        private System.Windows.Forms.Label labelDeptos;
-        private System.Windows.Forms.Label labelReservas;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private Label lblIngresos;
+        private Label lblDepartamentos;
+        private Label lblReservas;
+        private Label labelIngresos;
+        private Label labelDeptos;
+        private Label labelReservas;
+        private PictureBox pictureBox14;
+        private PictureBox pictureBox15;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox10;
     }
 }

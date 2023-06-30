@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -15,6 +17,8 @@ namespace DashboardTurismoReal
 {
     public partial class FormLogin : Form
     {
+        private AzureApiManager apiManager;
+
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
 
@@ -33,6 +37,8 @@ namespace DashboardTurismoReal
             labelPassword.Parent = pictureBoxWPLogin;
             labelEmail.BackColor = Color.Transparent;
             labelPassword.BackColor = Color.Transparent;
+
+            apiManager = new AzureApiManager("https://deploy-backend-turismoreal.azurewebsites.net/");
 
         }
 
@@ -107,6 +113,68 @@ namespace DashboardTurismoReal
         {
             txtContrasena.PasswordChar = '*'; // Mostrar caracteres de la contraseña
         }
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string correoElectronico = txtCorreoElectronico.Text;
+                string contrasena = txtContrasena.Text;
+
+                // Crear un objeto anónimo para enviar como cuerpo de la solicitud
+                var requestData = new
+                {
+                    Email = correoElectronico,
+                    Password = contrasena
+                };
+
+                // Convertir el objeto en formato JSON
+                string jsonRequest = JsonConvert.SerializeObject(requestData);
+
+                // Realizar la solicitud POST a la API
+                string endpoint = "/api/Usuario/LoginAdmin";
+                string responseData = await apiManager.PostApiResponse(endpoint, jsonRequest);
+
+                // Analizar la respuesta JSON
+                dynamic response = JsonConvert.DeserializeObject(responseData);
+
+                if (response != null && response.resultado != null && response.mensaje != null)
+                {
+                    bool resultado = response.resultado;
+                    string mensaje = response.mensaje;
+
+                    if (resultado)
+                    {
+                        // Inicio de sesión exitoso como administrador
+                        MessageBox.Show(mensaje, "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Redirigir al formulario MainForm
+                        IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .Build();
+                        MainForm mainForm = new MainForm(configuration);
+                        mainForm.Show();
+
+                        // Cerrar el formulario de inicio de sesión
+                        this.Hide();
+                    }
+                    else
+                    {
+                        // Inicio de sesión fallido
+                        MessageBox.Show(mensaje, "Inicio de sesión fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    // La respuesta JSON no contiene las propiedades esperadas
+                    MessageBox.Show("Respuesta inválida del servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al realizar el inicio de sesión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         /*
         private void btnMostrarContrasena_MouseDown(object sender, MouseEventArgs e)
         {
@@ -118,5 +186,4 @@ namespace DashboardTurismoReal
             txtContrasena.PasswordChar = '*'; // Ocultar caracteres de la contraseña
         }*/
     }
-
 }

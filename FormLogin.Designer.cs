@@ -179,6 +179,7 @@
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Ingresar";
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtContrasena
             // 

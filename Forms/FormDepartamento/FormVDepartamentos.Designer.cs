@@ -31,6 +31,9 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tituloVDpto = new Label();
             dataGridViewDepartamentos = new DataGridView();
             btnCargarDatos = new Button();
@@ -45,13 +48,16 @@
             comboBoxDpto = new ComboBox();
             labelDptoUpdate = new Label();
             labelDescUpdate = new Label();
+            dataGridViewHistorial = new DataGridView();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDepartamentos).BeginInit();
             panelDptoUpdate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).BeginInit();
             SuspendLayout();
             // 
             // tituloVDpto
             // 
-            tituloVDpto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tituloVDpto.Anchor = AnchorStyles.Top;
             tituloVDpto.AutoSize = true;
             tituloVDpto.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             tituloVDpto.Location = new Point(547, 68);
@@ -103,7 +109,7 @@
             dataGridViewDepartamentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewDepartamentos.RowTemplate.Height = 24;
             dataGridViewDepartamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewDepartamentos.Size = new Size(1137, 458);
+            dataGridViewDepartamentos.Size = new Size(1137, 411);
             dataGridViewDepartamentos.TabIndex = 2;
             dataGridViewDepartamentos.CellFormatting += dataGridViewDepartamentos_CellFormatting;
             // 
@@ -158,7 +164,7 @@
             panelDptoUpdate.Controls.Add(labelValueUpdate);
             panelDptoUpdate.Location = new Point(49, 591);
             panelDptoUpdate.Name = "panelDptoUpdate";
-            panelDptoUpdate.Size = new Size(807, 331);
+            panelDptoUpdate.Size = new Size(768, 331);
             panelDptoUpdate.TabIndex = 6;
             // 
             // label1
@@ -197,6 +203,7 @@
             txtDescripcion.Location = new Point(531, 111);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.ScrollBars = ScrollBars.Vertical;
             txtDescripcion.Size = new Size(217, 109);
             txtDescripcion.TabIndex = 11;
             // 
@@ -243,11 +250,70 @@
             labelDescUpdate.TabIndex = 6;
             labelDescUpdate.Text = "Cambiar Descripción:";
             // 
+            // dataGridViewHistorial
+            // 
+            dataGridViewHistorial.AllowUserToAddRows = false;
+            dataGridViewHistorial.AllowUserToDeleteRows = false;
+            dataGridViewHistorial.AllowUserToOrderColumns = true;
+            dataGridViewHistorial.AllowUserToResizeRows = false;
+            dataGridViewHistorial.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewHistorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewHistorial.BackgroundColor = SystemColors.Control;
+            dataGridViewHistorial.BorderStyle = BorderStyle.None;
+            dataGridViewHistorial.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dataGridViewHistorial.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewHistorial.GridColor = Color.DarkGoldenrod;
+            dataGridViewHistorial.Location = new Point(836, 591);
+            dataGridViewHistorial.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewHistorial.Name = "dataGridViewHistorial";
+            dataGridViewHistorial.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewHistorial.RowHeadersVisible = false;
+            dataGridViewHistorial.RowHeadersWidth = 51;
+            dataGridViewHistorial.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Goldenrod;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewHistorial.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewHistorial.RowTemplate.Height = 24;
+            dataGridViewHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewHistorial.Size = new Size(350, 331);
+            dataGridViewHistorial.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(836, 567);
+            label2.Name = "label2";
+            label2.Size = new Size(223, 20);
+            label2.TabIndex = 8;
+            label2.Text = "LOG DEPARTAMENTOS:";
+            label2.TextAlign = ContentAlignment.TopCenter;
+            // 
             // FormVDepartamentos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1235, 946);
+            Controls.Add(label2);
+            Controls.Add(dataGridViewHistorial);
             Controls.Add(panelDptoUpdate);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewDepartamentos);
@@ -260,6 +326,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewDepartamentos).EndInit();
             panelDptoUpdate.ResumeLayout(false);
             panelDptoUpdate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +347,7 @@
         private Button btnModificarDpto;
         private TextBox txtValorDiario;
         private Label label1;
+        private DataGridView dataGridViewHistorial;
+        private Label label2;
     }
 }

@@ -2,7 +2,7 @@
 {
     public class EstadoReserva
     {
-        public int StatusBookingId { get; set; }
-        public string StatusBookingName { get; set; }
+        public int? StatusBookingId { get; set; }
+        public string? StatusBookingName { get; set; }
     }
 }

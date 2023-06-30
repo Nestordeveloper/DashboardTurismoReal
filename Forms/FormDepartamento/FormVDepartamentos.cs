@@ -12,6 +12,7 @@ namespace DashboardTurismoReal
     {
         private AzureApiManager apiManager;
         private List<EstadoDepartamento> estadosDepartamento;
+        private List<HistorialDepartamento> historialDepartamentos; // Lista para almacenar el historial de cambios
 
         public FormVDepartamentos()
         {
@@ -25,12 +26,35 @@ namespace DashboardTurismoReal
         private async void FormVDepartamentos_Load(object sender, EventArgs e)
         {
             await CargarDatosDepartamentos();
+            await CargarHistorialDepartamentos(); // Cargar el historial de cambios al cargar el formulario
         }
 
         private async void btnCargarDatos_Click(object sender, EventArgs e)
         {
             await CargarDatosDepartamentos();
+            await CargarHistorialDepartamentos(); // Cargar el historial de cambios al hacer clic en el botón
         }
+
+        private async Task CargarHistorialDepartamentos()
+        {
+            try
+            {
+                // Obtener la respuesta de la API para el endpoint "api/HistorialDepartamento"
+                string historialResponse = await apiManager.GetApiResponse("api/HistorialDepartamento");
+
+                // Deserializar la respuesta JSON en una lista de HistorialDepartamento
+                historialDepartamentos = JsonConvert.DeserializeObject<List<HistorialDepartamento>>(historialResponse);
+
+                // Asignar la lista de historial al DataGridView
+                dataGridViewHistorial.DataSource = historialDepartamentos;
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier error que ocurra al obtener los datos de la API
+                MessageBox.Show("Error al obtener el historial de cambios: " + ex.Message);
+            }
+        }
+
 
         private async Task CargarDatosDepartamentos()
         {

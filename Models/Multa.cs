@@ -1,15 +1,26 @@
-﻿namespace DashboardTurismoReal.Models
+﻿using System.ComponentModel;
+
+namespace DashboardTurismoReal.Models
 {
     public class Multa
     {
-        public int MultaId { get; set; }
-        public string Rut { get; set; }
+        [DisplayName("Código de Multa")]
+        public int? MultaId { get; set; }
+        [DisplayName("RUT Usuario")]
+        public string? Rut { get; set; }
+        [DisplayName("Código de Departamento")]
         public string DepartmentCode { get; set; }
-        public int ProductId { get; set; }
-        public string Reason { get; set; }
-        public decimal MultaValue { get; set; }
-        public byte[] MultaPhoto { get; set; }
+        [DisplayName("Código del Producto")]
+        public int? ProductId { get; set; }
+        [DisplayName("Razón de Multa")]
+        public string? Reason { get; set; }
+        [DisplayName("Valor de Multa")]
+        public decimal? MultaValue { get; set; }
+        [DisplayName("Foto de Multa")]
+        public byte[]? MultaPhoto { get; set; }
+        [DisplayName("Código del Check-Out")]
         public int CheckoutId { get; set; }
-        public int BookingId { get; set; }
+        [DisplayName("Código de Reserva")]
+        public int? BookingId { get; set; }
     }
 }

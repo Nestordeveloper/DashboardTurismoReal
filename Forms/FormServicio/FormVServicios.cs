@@ -81,6 +81,9 @@ namespace DashboardTurismoReal.FormServicio
 
             // Obtener los ID de los servicios y agregarlos al ComboBox
             comboBoxServicio.DataSource = servicios.Select(s => s.ServiceId).ToList();
+
+            // Agregar los servicios al DataGridView
+            dataGridViewServicios.DataSource = servicios;
         }
 
         private async void btnEliminarServicio_Click(object sender, EventArgs e)

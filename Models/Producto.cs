@@ -8,10 +8,10 @@ namespace DashboardTurismoReal.Models
         [DisplayName ("Código del Producto")]
         public int ProductId { get; set; }
         [DisplayName("Código de Inventario")]
-        public string InventoryId { get; set; }
+        public string? InventoryId { get; set; }
         [DisplayName("Categoría")]
-        public string CategoryName { get; set; }
+        public string? CategoryName { get; set; }
         [DisplayName("Nombre del Producto")]
-        public string ProductName { get; set; }
+        public string? ProductName { get; set; }
     }
 }
