@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tituloVProveedor = new Label();
             dataGridViewProveedores = new DataGridView();
             btnCargarDatos = new Button();
@@ -39,6 +39,8 @@
             label1 = new Label();
             comboBoxProveedor = new ComboBox();
             labelProveedorDelete = new Label();
+            label11 = new Label();
+            txtFiltroProveedorRUT = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProveedores).BeginInit();
             panelDptoUpdate.SuspendLayout();
             SuspendLayout();
@@ -65,33 +67,33 @@
             dataGridViewProveedores.BackgroundColor = SystemColors.Control;
             dataGridViewProveedores.BorderStyle = BorderStyle.None;
             dataGridViewProveedores.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewProveedores.GridColor = Color.DarkGoldenrod;
             dataGridViewProveedores.Location = new Point(55, 106);
             dataGridViewProveedores.Margin = new Padding(3, 4, 3, 4);
             dataGridViewProveedores.Name = "dataGridViewProveedores";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewProveedores.RowHeadersVisible = false;
             dataGridViewProveedores.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Goldenrod;
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewProveedores.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Goldenrod;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewProveedores.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewProveedores.RowTemplate.Height = 24;
             dataGridViewProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewProveedores.Size = new Size(989, 413);
@@ -164,11 +166,31 @@
             labelProveedorDelete.TabIndex = 7;
             labelProveedorDelete.Text = "Seleccionar Proveedor:";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(55, 47);
+            label11.Name = "label11";
+            label11.Size = new Size(194, 20);
+            label11.TabIndex = 18;
+            label11.Text = "Filtrar por RUT Proveedor:";
+            // 
+            // txtFiltroProveedorRUT
+            // 
+            txtFiltroProveedorRUT.Location = new Point(55, 70);
+            txtFiltroProveedorRUT.Name = "txtFiltroProveedorRUT";
+            txtFiltroProveedorRUT.Size = new Size(242, 27);
+            txtFiltroProveedorRUT.TabIndex = 17;
+            txtFiltroProveedorRUT.TextChanged += txtFiltroProveedorRUT_TextChanged;
+            // 
             // FormVProveedores
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1121, 726);
+            Controls.Add(label11);
+            Controls.Add(txtFiltroProveedorRUT);
             Controls.Add(panelDptoUpdate);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewProveedores);
@@ -195,5 +217,7 @@
         private ComboBox comboBoxProveedor;
         private Label labelProveedorDelete;
         private Button btnEliminarProveedor;
+        private Label label11;
+        private TextBox txtFiltroProveedorRUT;
     }
 }

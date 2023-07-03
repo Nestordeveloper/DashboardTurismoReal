@@ -37,6 +37,9 @@ namespace DashboardTurismoReal.Forms.FormChecks
                 // Deserializar la respuesta JSON en una lista de Departamento
                 List<CheckOut> checkout = JsonConvert.DeserializeObject<List<CheckOut>>(responseData);
 
+                // Ordenar la lista de CheckOut por BookingId de forma descendente
+                checkout = checkout.OrderByDescending(c => c.BookingId).ToList();
+
                 // Agregar los departamentos al DataGridView
                 dataGridViewCheckOut.DataSource = checkout;
             }

@@ -60,6 +60,20 @@ namespace DashboardTurismoReal.FormProducto
             comboBoxProducto.DataSource = productos.Select(p => p.ProductId).ToList();
             dataGridViewProductos.DataSource = productos;
         }
+        private void txtFiltroProductoNombre_TextChanged(object sender, EventArgs e)
+        {
+            // Obtén el texto del TextBox de filtro
+            string filtroProductoNombre = txtFiltroProductoNombre.Text;
+
+            // Obtén el origen de datos actual del DataGridView (lista de productos)
+            List<Producto> productos = dataGridViewProductos.DataSource as List<Producto>;
+
+            // Filtra la lista de productos por el campo "ProductName"
+            List<Producto> productosFiltrados = productos.Where(p => p.ProductName.Contains(filtroProductoNombre)).ToList();
+
+            // Asigna los datos filtrados al DataGridView
+            dataGridViewProductos.DataSource = productosFiltrados;
+        }
 
         private async void btnCargarDatos_Click(object sender, EventArgs e)
         {

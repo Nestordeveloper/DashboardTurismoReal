@@ -69,6 +69,21 @@ namespace DashboardTurismoReal.FormProveedor
             // Obtener los RUT de los proveedores y agregarlos al ComboBox
             comboBoxProveedor.DataSource = proveedores.Select(p => p.CompanyId).ToList();
         }
+        private void txtFiltroProveedorRUT_TextChanged(object sender, EventArgs e)
+        {
+            // Obtén el texto del TextBox de filtro
+            string filtroProveedorRUT = txtFiltroProveedorRUT.Text;
+
+            // Obtén el origen de datos actual del DataGridView (lista de proveedores)
+            List<Proveedor> proveedores = dataGridViewProveedores.DataSource as List<Proveedor>;
+
+            // Filtra la lista de proveedores por el campo "CompanyId"
+            List<Proveedor> proveedoresFiltrados = proveedores.Where(p => p.CompanyId.Contains(filtroProveedorRUT)).ToList();
+
+            // Asigna los datos filtrados al DataGridView
+            dataGridViewProveedores.DataSource = proveedoresFiltrados;
+        }
+
 
         private void comboBoxProveedor_DropDown(object sender, EventArgs e)
         {

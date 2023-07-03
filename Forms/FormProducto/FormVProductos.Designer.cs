@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tituloVProd = new Label();
             dataGridViewProductos = new DataGridView();
             btnCargarDatos = new Button();
@@ -38,6 +38,8 @@
             label1 = new Label();
             comboBoxProducto = new ComboBox();
             labelProductoDelete = new Label();
+            label3 = new Label();
+            txtFiltroProductoNombre = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).BeginInit();
             panelDptoUpdate.SuspendLayout();
             SuspendLayout();
@@ -63,14 +65,14 @@
             dataGridViewProductos.BackgroundColor = SystemColors.Control;
             dataGridViewProductos.BorderStyle = BorderStyle.None;
             dataGridViewProductos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewProductos.GridColor = Color.DarkGoldenrod;
             dataGridViewProductos.Location = new Point(61, 119);
@@ -78,10 +80,10 @@
             dataGridViewProductos.Name = "dataGridViewProductos";
             dataGridViewProductos.RowHeadersVisible = false;
             dataGridViewProductos.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Goldenrod;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewProductos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Goldenrod;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewProductos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewProductos.RowTemplate.Height = 24;
             dataGridViewProductos.Size = new Size(897, 349);
             dataGridViewProductos.TabIndex = 5;
@@ -153,11 +155,31 @@
             labelProductoDelete.TabIndex = 7;
             labelProductoDelete.Text = "Seleccionar Producto:";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(61, 62);
+            label3.Name = "label3";
+            label3.Size = new Size(238, 20);
+            label3.TabIndex = 14;
+            label3.Text = "Filtrar por Nombre del Producto:";
+            // 
+            // txtFiltroProductoNombre
+            // 
+            txtFiltroProductoNombre.Location = new Point(61, 85);
+            txtFiltroProductoNombre.Name = "txtFiltroProductoNombre";
+            txtFiltroProductoNombre.Size = new Size(238, 27);
+            txtFiltroProductoNombre.TabIndex = 13;
+            txtFiltroProductoNombre.TextChanged += txtFiltroProductoNombre_TextChanged;
+            // 
             // FormVProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1033, 823);
+            Controls.Add(label3);
+            Controls.Add(txtFiltroProductoNombre);
             Controls.Add(panelDptoUpdate);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewProductos);
@@ -184,5 +206,7 @@
         private ComboBox comboBoxProducto;
         private Label labelProductoDelete;
         private Button btnEliminarProducto;
+        private Label label3;
+        private TextBox txtFiltroProductoNombre;
     }
 }

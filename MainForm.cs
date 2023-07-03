@@ -12,6 +12,7 @@ using DashboardTurismoReal.FormProveedor;
 using DashboardTurismoReal.FormInventario;
 using DashboardTurismoReal.Forms.FormChecks;
 using DashboardTurismoReal.Forms.FormMultas;
+using DashboardTurismoReal.Forms.FormDepartamento;
 
 namespace DashboardTurismoReal
 {
@@ -135,6 +136,12 @@ namespace DashboardTurismoReal
             subMenuDepartamentos.Visible = false;
             _subMenuVisible = false;
             OpenChildForm(new FormADepartamentos());
+        }
+        private void btnFotosDpto_Click(object sender, EventArgs e)
+        {
+            subMenuDepartamentos.Visible = false;
+            _subMenuVisible = false;
+            OpenChildForm(new FormFDepartamentos());
         }
 
         private void btnReservas_Click(object sender, EventArgs e)

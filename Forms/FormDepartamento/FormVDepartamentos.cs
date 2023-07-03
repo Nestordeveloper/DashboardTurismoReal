@@ -45,6 +45,9 @@ namespace DashboardTurismoReal
                 // Deserializar la respuesta JSON en una lista de HistorialDepartamento
                 historialDepartamentos = JsonConvert.DeserializeObject<List<HistorialDepartamento>>(historialResponse);
 
+                // Ordenar la lista de historial por ModificationDate en orden descendente
+                historialDepartamentos = historialDepartamentos.OrderByDescending(h => h.ModificationDate).ToList();
+
                 // Asignar la lista de historial al DataGridView
                 dataGridViewHistorial.DataSource = historialDepartamentos;
             }
@@ -54,6 +57,7 @@ namespace DashboardTurismoReal
                 MessageBox.Show("Error al obtener el historial de cambios: " + ex.Message);
             }
         }
+
 
 
         private async Task CargarDatosDepartamentos()
@@ -77,6 +81,21 @@ namespace DashboardTurismoReal
                 MessageBox.Show("Error al obtener los departamentos: " + ex.Message);
             }
         }
+        private void txtFiltroDepartamentoCod_TextChanged(object sender, EventArgs e)
+        {
+            // Obtén el texto del TextBox de filtro
+            string filtroDepartamentoCod = txtFiltroDepartamentoCod.Text;
+
+            // Obtén el origen de datos actual del DataGridView (lista de departamentos)
+            List<Departamento> departamentos = dataGridViewDepartamentos.DataSource as List<Departamento>;
+
+            // Filtra la lista de departamentos por el campo "DepartmentCod"
+            List<Departamento> departamentosFiltrados = departamentos.Where(d => d.DepartmentCod.Contains(filtroDepartamentoCod)).ToList();
+
+            // Asigna los datos filtrados al DataGridView
+            dataGridViewDepartamentos.DataSource = departamentosFiltrados;
+        }
+
 
         private void dataGridViewDepartamentos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -99,7 +118,16 @@ namespace DashboardTurismoReal
                     }
                 }
             }
+            else if (dataGridViewDepartamentos.Columns[e.ColumnIndex].Name == "DepartmentDesc")
+            {
+                if (e.Value != null)
+                {
+                    e.CellStyle.WrapMode = DataGridViewTriState.True;
+                    e.CellStyle.Alignment = DataGridViewContentAlignment.TopLeft;
+                }
+            }
         }
+
 
         // --- Actualizar Departamento
 
@@ -133,7 +161,7 @@ namespace DashboardTurismoReal
                 jsonData = JsonConvert.SerializeObject(departamentoUpdate);
 
                 // Construir el endpoint para la solicitud PUT
-                string endpoint = $"api/Departamento/{codDepartamento}";
+                string endpoint = $"api/Departamento/Update/{codDepartamento}";
 
                 // Enviar la solicitud PUT a la API con los datos actualizados
                 string responseData = await apiManager.PutApiResponse(endpoint, jsonData);

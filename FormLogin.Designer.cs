@@ -154,7 +154,7 @@
             labelPassword.AutoSize = true;
             labelPassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelPassword.ForeColor = Color.Transparent;
-            labelPassword.Location = new Point(429, 288);
+            labelPassword.Location = new Point(411, 289);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(88, 20);
             labelPassword.TabIndex = 5;
@@ -165,7 +165,7 @@
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelEmail.ForeColor = Color.Transparent;
-            labelEmail.Location = new Point(403, 220);
+            labelEmail.Location = new Point(385, 221);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(137, 20);
             labelEmail.TabIndex = 4;
@@ -173,7 +173,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(406, 373);
+            btnLogin.Location = new Point(388, 374);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(134, 29);
             btnLogin.TabIndex = 3;
@@ -184,7 +184,7 @@
             // txtContrasena
             // 
             txtContrasena.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            txtContrasena.Location = new Point(368, 311);
+            txtContrasena.Location = new Point(350, 312);
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(207, 27);
             txtContrasena.TabIndex = 2;
@@ -195,7 +195,7 @@
             // txtCorreoElectronico
             // 
             txtCorreoElectronico.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            txtCorreoElectronico.Location = new Point(368, 243);
+            txtCorreoElectronico.Location = new Point(350, 244);
             txtCorreoElectronico.Name = "txtCorreoElectronico";
             txtCorreoElectronico.Size = new Size(207, 27);
             txtCorreoElectronico.TabIndex = 1;

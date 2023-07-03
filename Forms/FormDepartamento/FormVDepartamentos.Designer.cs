@@ -50,6 +50,8 @@
             labelDescUpdate = new Label();
             dataGridViewHistorial = new DataGridView();
             label2 = new Label();
+            label11 = new Label();
+            txtFiltroDepartamentoCod = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDepartamentos).BeginInit();
             panelDptoUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistorial).BeginInit();
@@ -307,11 +309,31 @@
             label2.Text = "LOG DEPARTAMENTOS:";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(49, 54);
+            label11.Name = "label11";
+            label11.Size = new Size(242, 20);
+            label11.TabIndex = 16;
+            label11.Text = "Filtrar por Código Departamento:";
+            // 
+            // txtFiltroDepartamentoCod
+            // 
+            txtFiltroDepartamentoCod.Location = new Point(49, 77);
+            txtFiltroDepartamentoCod.Name = "txtFiltroDepartamentoCod";
+            txtFiltroDepartamentoCod.Size = new Size(242, 27);
+            txtFiltroDepartamentoCod.TabIndex = 15;
+            txtFiltroDepartamentoCod.TextChanged += txtFiltroDepartamentoCod_TextChanged;
+            // 
             // FormVDepartamentos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1235, 946);
+            Controls.Add(label11);
+            Controls.Add(txtFiltroDepartamentoCod);
             Controls.Add(label2);
             Controls.Add(dataGridViewHistorial);
             Controls.Add(panelDptoUpdate);
@@ -349,5 +371,7 @@
         private Label label1;
         private DataGridView dataGridViewHistorial;
         private Label label2;
+        private Label label11;
+        private TextBox txtFiltroDepartamentoCod;
     }
 }

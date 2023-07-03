@@ -33,8 +33,10 @@ namespace DashboardTurismoReal.FormServicio
         {
             try
             {
+                await CargarServiciosDpto();
                 await CargarServicios();
                 await CargarDepartamentos();
+                await CargarServicioDepartamentos();
             }
             catch (Exception ex)
             {
@@ -62,6 +64,7 @@ namespace DashboardTurismoReal.FormServicio
             {
                 await CargarServicios();
                 await CargarDepartamentos();
+                await CargarServicioDepartamentos();
             }
             catch (Exception ex)
             {
@@ -85,6 +88,39 @@ namespace DashboardTurismoReal.FormServicio
             // Agregar los servicios al DataGridView
             dataGridViewServicios.DataSource = servicios;
         }
+
+        private void txtFiltroServicioNombre_TextChanged(object sender, EventArgs e)
+        {
+            // Obtén el texto del TextBox de filtro
+            string filtroServicioNombre = txtFiltroServicioNombre.Text;
+
+            // Obtén el origen de datos actual del DataGridView (lista de servicios)
+            List<Servicio> servicios = dataGridViewServicios.DataSource as List<Servicio>;
+
+            // Filtra la lista de servicios por el campo "ServiceName"
+            List<Servicio> serviciosFiltrados = servicios.Where(s => s.ServiceName.Contains(filtroServicioNombre)).ToList();
+
+            // Asigna los datos filtrados al DataGridView
+            dataGridViewServicios.DataSource = serviciosFiltrados;
+        }
+
+        private async Task CargarServicioDepartamentos()
+        {
+            try
+            {
+                string responseData = await apiManager.GetApiResponse("api/ServicioDepartamento");
+
+                List<ServicioDepartamento> servicioDepartamentos = JsonConvert.DeserializeObject<List<ServicioDepartamento>>(responseData);
+
+                dataGridViewServicioDepartamentos.DataSource = servicioDepartamentos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de ServicioDepartamento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
         private async void btnEliminarServicio_Click(object sender, EventArgs e)
         {
@@ -171,9 +207,8 @@ namespace DashboardTurismoReal.FormServicio
                     ServiceId = serviceId
                 };
 
-                string endpoint = "api/ServicioDepartamento";
                 string requestData = JsonConvert.SerializeObject(servicioDepartamento);
-                string responseData = await apiManager.PostApiResponse(endpoint, requestData);
+                string responseData = await apiManager.PostApiResponse("api/ServicioDepartamento", requestData);
                 Console.WriteLine(responseData);
 
                 MessageBox.Show("El servicio se asignó correctamente al departamento.", "Servicio asignado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -190,5 +225,20 @@ namespace DashboardTurismoReal.FormServicio
             string responseData = await apiManager.GetApiResponse(endpoint);
             return !string.IsNullOrEmpty(responseData);
         }
+
+        private async Task<List<Servicio>> CargarServiciosDpto()
+        {
+            string responseData = await apiManager.GetApiResponse("api/Servicio");
+            Console.WriteLine(responseData);
+
+            servicios = JsonConvert.DeserializeObject<List<Servicio>>(responseData);
+
+            comboBoxDptoServicio.DataSource = servicios;
+            comboBoxDptoServicio.DisplayMember = "ServiceId";
+            comboBoxDptoServicio.ValueMember = "ServiceId";
+
+            return servicios;
+        }
+
     }
 }

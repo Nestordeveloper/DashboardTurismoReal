@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             tituloVServicios = new Label();
@@ -45,9 +47,13 @@
             label2 = new Label();
             comboBoxDpto = new ComboBox();
             label3 = new Label();
+            label5 = new Label();
+            txtFiltroServicioNombre = new TextBox();
+            dataGridViewServicioDepartamentos = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridViewServicios).BeginInit();
             panelDptoUpdate.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServicioDepartamentos).BeginInit();
             SuspendLayout();
             // 
             // tituloVServicios
@@ -72,14 +78,14 @@
             dataGridViewServicios.BackgroundColor = SystemColors.Control;
             dataGridViewServicios.BorderStyle = BorderStyle.None;
             dataGridViewServicios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewServicios.GridColor = Color.DarkGoldenrod;
             dataGridViewServicios.Location = new Point(68, 124);
@@ -87,13 +93,13 @@
             dataGridViewServicios.Name = "dataGridViewServicios";
             dataGridViewServicios.RowHeadersVisible = false;
             dataGridViewServicios.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Goldenrod;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewServicios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Goldenrod;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewServicios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewServicios.RowTemplate.Height = 24;
             dataGridViewServicios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewServicios.Size = new Size(946, 356);
+            dataGridViewServicios.Size = new Size(946, 374);
             dataGridViewServicios.TabIndex = 7;
             // 
             // btnCargarDatos
@@ -118,12 +124,12 @@
             panelDptoUpdate.Controls.Add(labelServicioDelete);
             panelDptoUpdate.Location = new Point(68, 505);
             panelDptoUpdate.Name = "panelDptoUpdate";
-            panelDptoUpdate.Size = new Size(474, 200);
+            panelDptoUpdate.Size = new Size(474, 260);
             panelDptoUpdate.TabIndex = 9;
             // 
             // btnEliminarServicio
             // 
-            btnEliminarServicio.Location = new Point(178, 153);
+            btnEliminarServicio.Location = new Point(176, 192);
             btnEliminarServicio.Name = "btnEliminarServicio";
             btnEliminarServicio.Size = new Size(139, 29);
             btnEliminarServicio.TabIndex = 11;
@@ -136,7 +142,7 @@
             label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(155, 18);
+            label1.Location = new Point(151, 18);
             label1.Name = "label1";
             label1.Size = new Size(193, 32);
             label1.TabIndex = 9;
@@ -146,7 +152,7 @@
             // 
             comboBoxServicio.Anchor = AnchorStyles.Left;
             comboBoxServicio.FormattingEnabled = true;
-            comboBoxServicio.Location = new Point(270, 89);
+            comboBoxServicio.Location = new Point(263, 113);
             comboBoxServicio.Name = "comboBoxServicio";
             comboBoxServicio.Size = new Size(151, 28);
             comboBoxServicio.TabIndex = 8;
@@ -157,7 +163,7 @@
             labelServicioDelete.Anchor = AnchorStyles.Left;
             labelServicioDelete.AutoSize = true;
             labelServicioDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelServicioDelete.Location = new Point(73, 92);
+            labelServicioDelete.Location = new Point(50, 113);
             labelServicioDelete.Name = "labelServicioDelete";
             labelServicioDelete.Size = new Size(150, 20);
             labelServicioDelete.TabIndex = 7;
@@ -165,6 +171,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(comboBoxDptoServicio);
@@ -206,6 +213,7 @@
             btnAsignarServicio.TabIndex = 10;
             btnAsignarServicio.Text = "Asignar Servicio";
             btnAsignarServicio.UseVisualStyleBackColor = true;
+            btnAsignarServicio.Click += btnAsignarServicio_Click;
             // 
             // label2
             // 
@@ -238,11 +246,67 @@
             label3.TabIndex = 7;
             label3.Text = "Seleccionar Departamento:";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(68, 67);
+            label5.Name = "label5";
+            label5.Size = new Size(229, 20);
+            label5.TabIndex = 16;
+            label5.Text = "Filtrar por Nombre del Servicio:";
+            // 
+            // txtFiltroServicioNombre
+            // 
+            txtFiltroServicioNombre.Location = new Point(68, 90);
+            txtFiltroServicioNombre.Name = "txtFiltroServicioNombre";
+            txtFiltroServicioNombre.Size = new Size(238, 27);
+            txtFiltroServicioNombre.TabIndex = 15;
+            txtFiltroServicioNombre.TextChanged += txtFiltroServicioNombre_TextChanged;
+            // 
+            // dataGridViewServicioDepartamentos
+            // 
+            dataGridViewServicioDepartamentos.AllowUserToAddRows = false;
+            dataGridViewServicioDepartamentos.AllowUserToDeleteRows = false;
+            dataGridViewServicioDepartamentos.AllowUserToOrderColumns = true;
+            dataGridViewServicioDepartamentos.AllowUserToResizeRows = false;
+            dataGridViewServicioDepartamentos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewServicioDepartamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewServicioDepartamentos.BackgroundColor = SystemColors.Control;
+            dataGridViewServicioDepartamentos.BorderStyle = BorderStyle.None;
+            dataGridViewServicioDepartamentos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewServicioDepartamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewServicioDepartamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewServicioDepartamentos.GridColor = Color.DarkGoldenrod;
+            dataGridViewServicioDepartamentos.Location = new Point(68, 772);
+            dataGridViewServicioDepartamentos.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewServicioDepartamentos.Name = "dataGridViewServicioDepartamentos";
+            dataGridViewServicioDepartamentos.RowHeadersVisible = false;
+            dataGridViewServicioDepartamentos.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.SelectionBackColor = Color.Goldenrod;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewServicioDepartamentos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewServicioDepartamentos.RowTemplate.Height = 24;
+            dataGridViewServicioDepartamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewServicioDepartamentos.Size = new Size(946, 266);
+            dataGridViewServicioDepartamentos.TabIndex = 17;
+            // 
             // FormVServicios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1090, 801);
+            ClientSize = new Size(1090, 1062);
+            Controls.Add(dataGridViewServicioDepartamentos);
+            Controls.Add(label5);
+            Controls.Add(txtFiltroServicioNombre);
             Controls.Add(panel1);
             Controls.Add(panelDptoUpdate);
             Controls.Add(btnCargarDatos);
@@ -258,6 +322,7 @@
             panelDptoUpdate.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServicioDepartamentos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,5 +344,8 @@
         private Label label2;
         private ComboBox comboBoxDpto;
         private Label label3;
+        private Label label5;
+        private TextBox txtFiltroServicioNombre;
+        private DataGridView dataGridViewServicioDepartamentos;
     }
 }

@@ -61,6 +61,18 @@ namespace DashboardTurismoReal.FormUsuario
             }
         }
 
+        private void txtFiltroRut_TextChanged(object sender, EventArgs e)
+        {
+            // Obtén el texto del TextBox de filtro
+            string filtroRut = txtFiltroRut.Text;
+
+            // Filtra la lista de usuarios por el campo "Rut"
+            List<Usuario> usuariosFiltrados = usuarios.Where(u => u.Rut.Contains(filtroRut)).ToList();
+
+            // Actualiza el origen de datos del DataGridView con los usuarios filtrados
+            dataGridViewUsuarios.DataSource = usuariosFiltrados;
+        }
+
         private async Task CargarUsuarios()
         {
             // Deshabilitar el ComboBox de Rut

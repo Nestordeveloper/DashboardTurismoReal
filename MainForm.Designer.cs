@@ -36,6 +36,13 @@
             btnMaximizar = new Button();
             btnCerrar = new Button();
             MenuVertical = new Panel();
+            subMenuDepartamentos = new FlowLayoutPanel();
+            btnVerDepartamento = new Button();
+            btnAgregarDepartamento = new Button();
+            btnFotosDpto = new Button();
+            subMenuChecks = new FlowLayoutPanel();
+            btnVerCheckIn = new Button();
+            btnVerCheckOut = new Button();
             subMenuProveedores = new FlowLayoutPanel();
             btnVerProveedores = new Button();
             btnAgregarProveedores = new Button();
@@ -47,17 +54,10 @@
             btnVerServicios = new Button();
             btnAgregarServicios = new Button();
             btnLogOut = new PictureBox();
-            subMenuChecks = new FlowLayoutPanel();
-            btnVerCheckIn = new Button();
-            btnVerCheckOut = new Button();
             btnChecks = new Button();
             pictureBox10 = new PictureBox();
-            subMenuDepartamentos = new FlowLayoutPanel();
-            btnVerDepartamento = new Button();
-            btnAgregarDepartamento = new Button();
             subMenuInventario = new FlowLayoutPanel();
             btnVerInventario = new Button();
-            btnAddInventario = new Button();
             pictureBox1 = new PictureBox();
             btnInicio = new Button();
             subMenuUsuarios = new FlowLayoutPanel();
@@ -86,14 +86,14 @@
             BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             MenuVertical.SuspendLayout();
+            subMenuDepartamentos.SuspendLayout();
+            subMenuChecks.SuspendLayout();
             subMenuProveedores.SuspendLayout();
             subMenuMultas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             subMenuServicios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnLogOut).BeginInit();
-            subMenuChecks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            subMenuDepartamentos.SuspendLayout();
             subMenuInventario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             subMenuUsuarios.SuspendLayout();
@@ -196,6 +196,7 @@
             // MenuVertical
             // 
             MenuVertical.BackColor = SystemColors.Desktop;
+            MenuVertical.Controls.Add(subMenuDepartamentos);
             MenuVertical.Controls.Add(subMenuChecks);
             MenuVertical.Controls.Add(subMenuProveedores);
             MenuVertical.Controls.Add(btnMultas);
@@ -205,7 +206,6 @@
             MenuVertical.Controls.Add(btnLogOut);
             MenuVertical.Controls.Add(btnChecks);
             MenuVertical.Controls.Add(pictureBox10);
-            MenuVertical.Controls.Add(subMenuDepartamentos);
             MenuVertical.Controls.Add(subMenuInventario);
             MenuVertical.Controls.Add(pictureBox1);
             MenuVertical.Controls.Add(btnInicio);
@@ -233,6 +233,125 @@
             MenuVertical.Name = "MenuVertical";
             MenuVertical.Size = new Size(269, 1065);
             MenuVertical.TabIndex = 1;
+            // 
+            // subMenuDepartamentos
+            // 
+            subMenuDepartamentos.Controls.Add(btnVerDepartamento);
+            subMenuDepartamentos.Controls.Add(btnAgregarDepartamento);
+            subMenuDepartamentos.Controls.Add(btnFotosDpto);
+            subMenuDepartamentos.Location = new Point(60, 341);
+            subMenuDepartamentos.Margin = new Padding(3, 4, 3, 4);
+            subMenuDepartamentos.Name = "subMenuDepartamentos";
+            subMenuDepartamentos.Size = new Size(200, 184);
+            subMenuDepartamentos.TabIndex = 20;
+            subMenuDepartamentos.Visible = false;
+            // 
+            // btnVerDepartamento
+            // 
+            btnVerDepartamento.BackColor = SystemColors.Desktop;
+            btnVerDepartamento.Cursor = Cursors.Hand;
+            btnVerDepartamento.FlatAppearance.BorderSize = 0;
+            btnVerDepartamento.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
+            btnVerDepartamento.FlatStyle = FlatStyle.Flat;
+            btnVerDepartamento.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVerDepartamento.ForeColor = Color.White;
+            btnVerDepartamento.Location = new Point(4, 5);
+            btnVerDepartamento.Margin = new Padding(4, 5, 4, 5);
+            btnVerDepartamento.Name = "btnVerDepartamento";
+            btnVerDepartamento.Size = new Size(197, 52);
+            btnVerDepartamento.TabIndex = 19;
+            btnVerDepartamento.Text = "Ver Departamentos";
+            btnVerDepartamento.UseVisualStyleBackColor = false;
+            btnVerDepartamento.Click += btnVerDepartamento_Click;
+            // 
+            // btnAgregarDepartamento
+            // 
+            btnAgregarDepartamento.BackColor = SystemColors.Desktop;
+            btnAgregarDepartamento.Cursor = Cursors.Hand;
+            btnAgregarDepartamento.FlatAppearance.BorderSize = 0;
+            btnAgregarDepartamento.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
+            btnAgregarDepartamento.FlatStyle = FlatStyle.Flat;
+            btnAgregarDepartamento.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAgregarDepartamento.ForeColor = Color.White;
+            btnAgregarDepartamento.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregarDepartamento.Location = new Point(4, 67);
+            btnAgregarDepartamento.Margin = new Padding(4, 5, 4, 5);
+            btnAgregarDepartamento.Name = "btnAgregarDepartamento";
+            btnAgregarDepartamento.RightToLeft = RightToLeft.No;
+            btnAgregarDepartamento.Size = new Size(197, 52);
+            btnAgregarDepartamento.TabIndex = 18;
+            btnAgregarDepartamento.Text = "Agregar Departamento";
+            btnAgregarDepartamento.UseVisualStyleBackColor = false;
+            btnAgregarDepartamento.Click += btnAgregarDepartamento_Click;
+            // 
+            // btnFotosDpto
+            // 
+            btnFotosDpto.BackColor = SystemColors.Desktop;
+            btnFotosDpto.Cursor = Cursors.Hand;
+            btnFotosDpto.FlatAppearance.BorderSize = 0;
+            btnFotosDpto.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
+            btnFotosDpto.FlatStyle = FlatStyle.Flat;
+            btnFotosDpto.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
+            btnFotosDpto.ForeColor = Color.White;
+            btnFotosDpto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnFotosDpto.Location = new Point(4, 129);
+            btnFotosDpto.Margin = new Padding(4, 5, 4, 5);
+            btnFotosDpto.Name = "btnFotosDpto";
+            btnFotosDpto.RightToLeft = RightToLeft.No;
+            btnFotosDpto.Size = new Size(197, 52);
+            btnFotosDpto.TabIndex = 20;
+            btnFotosDpto.Text = "Añadir Fotos";
+            btnFotosDpto.UseVisualStyleBackColor = false;
+            btnFotosDpto.Click += btnFotosDpto_Click;
+            // 
+            // subMenuChecks
+            // 
+            subMenuChecks.Controls.Add(btnVerCheckIn);
+            subMenuChecks.Controls.Add(btnVerCheckOut);
+            subMenuChecks.Location = new Point(60, 777);
+            subMenuChecks.Margin = new Padding(3, 4, 3, 4);
+            subMenuChecks.Name = "subMenuChecks";
+            subMenuChecks.Size = new Size(200, 123);
+            subMenuChecks.TabIndex = 24;
+            subMenuChecks.Visible = false;
+            // 
+            // btnVerCheckIn
+            // 
+            btnVerCheckIn.BackColor = SystemColors.Desktop;
+            btnVerCheckIn.Cursor = Cursors.Hand;
+            btnVerCheckIn.FlatAppearance.BorderSize = 0;
+            btnVerCheckIn.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
+            btnVerCheckIn.FlatStyle = FlatStyle.Flat;
+            btnVerCheckIn.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVerCheckIn.ForeColor = Color.White;
+            btnVerCheckIn.Location = new Point(4, 5);
+            btnVerCheckIn.Margin = new Padding(4, 5, 4, 5);
+            btnVerCheckIn.Name = "btnVerCheckIn";
+            btnVerCheckIn.Size = new Size(197, 52);
+            btnVerCheckIn.TabIndex = 19;
+            btnVerCheckIn.Text = "Ver Check-In";
+            btnVerCheckIn.UseVisualStyleBackColor = false;
+            btnVerCheckIn.Click += btnVerCheckIn_Click;
+            // 
+            // btnVerCheckOut
+            // 
+            btnVerCheckOut.BackColor = SystemColors.Desktop;
+            btnVerCheckOut.Cursor = Cursors.Hand;
+            btnVerCheckOut.FlatAppearance.BorderSize = 0;
+            btnVerCheckOut.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
+            btnVerCheckOut.FlatStyle = FlatStyle.Flat;
+            btnVerCheckOut.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVerCheckOut.ForeColor = Color.White;
+            btnVerCheckOut.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVerCheckOut.Location = new Point(4, 67);
+            btnVerCheckOut.Margin = new Padding(4, 5, 4, 5);
+            btnVerCheckOut.Name = "btnVerCheckOut";
+            btnVerCheckOut.RightToLeft = RightToLeft.No;
+            btnVerCheckOut.Size = new Size(197, 52);
+            btnVerCheckOut.TabIndex = 18;
+            btnVerCheckOut.Text = "Ver Check-Out";
+            btnVerCheckOut.UseVisualStyleBackColor = false;
+            btnVerCheckOut.Click += btnVerCheckOut_Click;
             // 
             // subMenuProveedores
             // 
@@ -401,55 +520,6 @@
             btnLogOut.TabIndex = 25;
             btnLogOut.TabStop = false;
             // 
-            // subMenuChecks
-            // 
-            subMenuChecks.Controls.Add(btnVerCheckIn);
-            subMenuChecks.Controls.Add(btnVerCheckOut);
-            subMenuChecks.Location = new Point(60, 777);
-            subMenuChecks.Margin = new Padding(3, 4, 3, 4);
-            subMenuChecks.Name = "subMenuChecks";
-            subMenuChecks.Size = new Size(200, 123);
-            subMenuChecks.TabIndex = 24;
-            subMenuChecks.Visible = false;
-            // 
-            // btnVerCheckIn
-            // 
-            btnVerCheckIn.BackColor = SystemColors.Desktop;
-            btnVerCheckIn.Cursor = Cursors.Hand;
-            btnVerCheckIn.FlatAppearance.BorderSize = 0;
-            btnVerCheckIn.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
-            btnVerCheckIn.FlatStyle = FlatStyle.Flat;
-            btnVerCheckIn.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
-            btnVerCheckIn.ForeColor = Color.White;
-            btnVerCheckIn.Location = new Point(4, 5);
-            btnVerCheckIn.Margin = new Padding(4, 5, 4, 5);
-            btnVerCheckIn.Name = "btnVerCheckIn";
-            btnVerCheckIn.Size = new Size(197, 52);
-            btnVerCheckIn.TabIndex = 19;
-            btnVerCheckIn.Text = "Ver Check-In";
-            btnVerCheckIn.UseVisualStyleBackColor = false;
-            btnVerCheckIn.Click += btnVerCheckIn_Click;
-            // 
-            // btnVerCheckOut
-            // 
-            btnVerCheckOut.BackColor = SystemColors.Desktop;
-            btnVerCheckOut.Cursor = Cursors.Hand;
-            btnVerCheckOut.FlatAppearance.BorderSize = 0;
-            btnVerCheckOut.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
-            btnVerCheckOut.FlatStyle = FlatStyle.Flat;
-            btnVerCheckOut.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
-            btnVerCheckOut.ForeColor = Color.White;
-            btnVerCheckOut.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVerCheckOut.Location = new Point(4, 67);
-            btnVerCheckOut.Margin = new Padding(4, 5, 4, 5);
-            btnVerCheckOut.Name = "btnVerCheckOut";
-            btnVerCheckOut.RightToLeft = RightToLeft.No;
-            btnVerCheckOut.Size = new Size(197, 52);
-            btnVerCheckOut.TabIndex = 18;
-            btnVerCheckOut.Text = "Ver Check-Out";
-            btnVerCheckOut.UseVisualStyleBackColor = false;
-            btnVerCheckOut.Click += btnVerCheckOut_Click;
-            // 
             // btnChecks
             // 
             btnChecks.BackColor = SystemColors.Desktop;
@@ -480,63 +550,13 @@
             pictureBox10.TabIndex = 22;
             pictureBox10.TabStop = false;
             // 
-            // subMenuDepartamentos
-            // 
-            subMenuDepartamentos.Controls.Add(btnVerDepartamento);
-            subMenuDepartamentos.Controls.Add(btnAgregarDepartamento);
-            subMenuDepartamentos.Location = new Point(60, 342);
-            subMenuDepartamentos.Margin = new Padding(3, 4, 3, 4);
-            subMenuDepartamentos.Name = "subMenuDepartamentos";
-            subMenuDepartamentos.Size = new Size(200, 123);
-            subMenuDepartamentos.TabIndex = 20;
-            subMenuDepartamentos.Visible = false;
-            // 
-            // btnVerDepartamento
-            // 
-            btnVerDepartamento.BackColor = SystemColors.Desktop;
-            btnVerDepartamento.Cursor = Cursors.Hand;
-            btnVerDepartamento.FlatAppearance.BorderSize = 0;
-            btnVerDepartamento.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
-            btnVerDepartamento.FlatStyle = FlatStyle.Flat;
-            btnVerDepartamento.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
-            btnVerDepartamento.ForeColor = Color.White;
-            btnVerDepartamento.Location = new Point(4, 5);
-            btnVerDepartamento.Margin = new Padding(4, 5, 4, 5);
-            btnVerDepartamento.Name = "btnVerDepartamento";
-            btnVerDepartamento.Size = new Size(197, 52);
-            btnVerDepartamento.TabIndex = 19;
-            btnVerDepartamento.Text = "Ver Departamentos";
-            btnVerDepartamento.UseVisualStyleBackColor = false;
-            btnVerDepartamento.Click += btnVerDepartamento_Click;
-            // 
-            // btnAgregarDepartamento
-            // 
-            btnAgregarDepartamento.BackColor = SystemColors.Desktop;
-            btnAgregarDepartamento.Cursor = Cursors.Hand;
-            btnAgregarDepartamento.FlatAppearance.BorderSize = 0;
-            btnAgregarDepartamento.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
-            btnAgregarDepartamento.FlatStyle = FlatStyle.Flat;
-            btnAgregarDepartamento.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAgregarDepartamento.ForeColor = Color.White;
-            btnAgregarDepartamento.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarDepartamento.Location = new Point(4, 67);
-            btnAgregarDepartamento.Margin = new Padding(4, 5, 4, 5);
-            btnAgregarDepartamento.Name = "btnAgregarDepartamento";
-            btnAgregarDepartamento.RightToLeft = RightToLeft.No;
-            btnAgregarDepartamento.Size = new Size(197, 52);
-            btnAgregarDepartamento.TabIndex = 18;
-            btnAgregarDepartamento.Text = "Agregar Departamento";
-            btnAgregarDepartamento.UseVisualStyleBackColor = false;
-            btnAgregarDepartamento.Click += btnAgregarDepartamento_Click;
-            // 
             // subMenuInventario
             // 
             subMenuInventario.Controls.Add(btnVerInventario);
-            subMenuInventario.Controls.Add(btnAddInventario);
             subMenuInventario.Location = new Point(60, 532);
             subMenuInventario.Margin = new Padding(3, 4, 3, 4);
             subMenuInventario.Name = "subMenuInventario";
-            subMenuInventario.Size = new Size(200, 120);
+            subMenuInventario.Size = new Size(200, 63);
             subMenuInventario.TabIndex = 16;
             subMenuInventario.Visible = false;
             // 
@@ -557,26 +577,6 @@
             btnVerInventario.Text = "Ver Inventario";
             btnVerInventario.UseVisualStyleBackColor = false;
             btnVerInventario.Click += btnVerInventario_Click;
-            // 
-            // btnAddInventario
-            // 
-            btnAddInventario.BackColor = SystemColors.Desktop;
-            btnAddInventario.Cursor = Cursors.Hand;
-            btnAddInventario.FlatAppearance.BorderSize = 0;
-            btnAddInventario.FlatAppearance.MouseOverBackColor = Color.DarkGoldenrod;
-            btnAddInventario.FlatStyle = FlatStyle.Flat;
-            btnAddInventario.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAddInventario.ForeColor = Color.White;
-            btnAddInventario.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddInventario.Location = new Point(4, 67);
-            btnAddInventario.Margin = new Padding(4, 5, 4, 5);
-            btnAddInventario.Name = "btnAddInventario";
-            btnAddInventario.RightToLeft = RightToLeft.No;
-            btnAddInventario.Size = new Size(197, 52);
-            btnAddInventario.TabIndex = 18;
-            btnAddInventario.Text = "Agregar Inventario";
-            btnAddInventario.UseVisualStyleBackColor = false;
-            btnAddInventario.Click += btnAddInventario_Click;
             // 
             // pictureBox1
             // 
@@ -960,14 +960,14 @@
             BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             MenuVertical.ResumeLayout(false);
+            subMenuDepartamentos.ResumeLayout(false);
+            subMenuChecks.ResumeLayout(false);
             subMenuProveedores.ResumeLayout(false);
             subMenuMultas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             subMenuServicios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnLogOut).EndInit();
-            subMenuChecks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            subMenuDepartamentos.ResumeLayout(false);
             subMenuInventario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             subMenuUsuarios.ResumeLayout(false);
@@ -1012,7 +1012,6 @@
         private Button btnInicio;
         private PictureBox pictureBox9;
         private FlowLayoutPanel subMenuInventario;
-        private Button btnAddInventario;
         private Button btnVerInventario;
         private FlowLayoutPanel subMenuReservas;
         private Button btnVerReservas;
@@ -1040,5 +1039,6 @@
         private FlowLayoutPanel subMenuMultas;
         private Button btnGestionarMultas;
         private Button btnMultas;
+        private Button btnFotosDpto;
     }
 }

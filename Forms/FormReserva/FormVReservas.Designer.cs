@@ -40,6 +40,8 @@
             label1 = new Label();
             comboBoxReserva = new ComboBox();
             labelDptoUpdate = new Label();
+            label11 = new Label();
+            txtFiltroRUTReserva = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewReservas).BeginInit();
             panelStatusUpdate.SuspendLayout();
             SuspendLayout();
@@ -179,11 +181,31 @@
             labelDptoUpdate.TabIndex = 7;
             labelDptoUpdate.Text = "Seleccionar Reserva:";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(67, 60);
+            label11.Name = "label11";
+            label11.Size = new Size(117, 20);
+            label11.TabIndex = 20;
+            label11.Text = "Filtrar por RUT:";
+            // 
+            // txtFiltroRUTReserva
+            // 
+            txtFiltroRUTReserva.Location = new Point(67, 83);
+            txtFiltroRUTReserva.Name = "txtFiltroRUTReserva";
+            txtFiltroRUTReserva.Size = new Size(242, 27);
+            txtFiltroRUTReserva.TabIndex = 19;
+            txtFiltroRUTReserva.TextChanged += txtFiltroRUTReserva_TextChanged;
+            // 
             // FormVReservas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1107, 756);
+            Controls.Add(label11);
+            Controls.Add(txtFiltroRUTReserva);
             Controls.Add(panelStatusUpdate);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewReservas);
@@ -212,5 +234,7 @@
         private ComboBox comboBoxReserva;
         private Label labelDptoUpdate;
         private Button btnActualizarEstado;
+        private Label label11;
+        private TextBox txtFiltroRUTReserva;
     }
 }

@@ -35,6 +35,7 @@
             dataGridViewMultas = new DataGridView();
             btnCargarDatos = new Button();
             panel1 = new Panel();
+            btnEnviar = new Button();
             comboBoxInventario = new ComboBox();
             label12 = new Label();
             labelRutaFoto = new Label();
@@ -58,6 +59,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label11 = new Label();
+            txtFiltroRutMultas = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMultas).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -117,6 +120,7 @@
             dataGridViewMultas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewMultas.Size = new Size(1092, 349);
             dataGridViewMultas.TabIndex = 8;
+            dataGridViewMultas.CellFormatting += dataGridViewMultas_CellFormatting;
             // 
             // btnCargarDatos
             // 
@@ -134,6 +138,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(btnEnviar);
             panel1.Controls.Add(comboBoxInventario);
             panel1.Controls.Add(label12);
             panel1.Controls.Add(labelRutaFoto);
@@ -162,6 +167,17 @@
             panel1.Size = new Size(1092, 399);
             panel1.TabIndex = 10;
             // 
+            // btnEnviar
+            // 
+            btnEnviar.Location = new Point(632, 354);
+            btnEnviar.Name = "btnEnviar";
+            btnEnviar.Size = new Size(159, 29);
+            btnEnviar.TabIndex = 27;
+            btnEnviar.Text = "Enviar Notificación";
+            btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Visible = false;
+            //btnEnviar.Click += btnEnviar_Click;
+            // 
             // comboBoxInventario
             // 
             comboBoxInventario.FormattingEnabled = true;
@@ -185,7 +201,7 @@
             labelRutaFoto.AutoSize = true;
             labelRutaFoto.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             labelRutaFoto.ForeColor = SystemColors.ControlDark;
-            labelRutaFoto.Location = new Point(310, 345);
+            labelRutaFoto.Location = new Point(23, 372);
             labelRutaFoto.Name = "labelRutaFoto";
             labelRutaFoto.Size = new Size(104, 20);
             labelRutaFoto.TabIndex = 22;
@@ -343,6 +359,7 @@
             comboBoxRut.Name = "comboBoxRut";
             comboBoxRut.Size = new Size(174, 28);
             comboBoxRut.TabIndex = 4;
+            comboBoxRut.SelectedIndexChanged += comboBoxRut_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -384,11 +401,31 @@
             label1.TabIndex = 0;
             label1.Text = "GENERAR MULTA";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(37, 39);
+            label11.Name = "label11";
+            label11.Size = new Size(117, 20);
+            label11.TabIndex = 14;
+            label11.Text = "Filtrar por RUT:";
+            // 
+            // txtFiltroRutMultas
+            // 
+            txtFiltroRutMultas.Location = new Point(37, 62);
+            txtFiltroRutMultas.Name = "txtFiltroRutMultas";
+            txtFiltroRutMultas.Size = new Size(171, 27);
+            txtFiltroRutMultas.TabIndex = 13;
+            txtFiltroRutMultas.TextChanged += txtFiltroRutMultas_TextChanged;
+            // 
             // FormGMultas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1164, 875);
+            Controls.Add(label11);
+            Controls.Add(txtFiltroRutMultas);
             Controls.Add(panel1);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewMultas);
@@ -433,5 +470,8 @@
         private Label labelRutaFoto;
         private ComboBox comboBoxInventario;
         private Label label12;
+        private Label label11;
+        private TextBox txtFiltroRutMultas;
+        private Button btnEnviar;
     }
 }

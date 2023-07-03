@@ -57,6 +57,20 @@ namespace DashboardTurismoReal.FormReserva
                 MessageBox.Show("Error al obtener las reservas: " + ex.Message);
             }
         }
+        private void txtFiltroRUTReserva_TextChanged(object sender, EventArgs e)
+        {
+            // Obtén el RUT del TextBox de filtro
+            string filtroRUTReserva = txtFiltroRUTReserva.Text;
+
+            // Obtén el origen de datos actual del DataGridView (lista de reservas)
+            List<Reserva> reservas = dataGridViewReservas.DataSource as List<Reserva>;
+
+            // Filtra la lista de reservas por el campo "RUT"
+            List<Reserva> reservasFiltradas = reservas.Where(r => r.RUT.Contains(filtroRUTReserva)).ToList();
+
+            // Asigna los datos filtrados al DataGridView
+            dataGridViewReservas.DataSource = reservasFiltradas;
+        }
 
         private async Task CargarEstadosReserva()
         {
@@ -104,21 +118,27 @@ namespace DashboardTurismoReal.FormReserva
                     return;
                 }
 
-                // Actualizar el estado de la reserva utilizando la API
-                string endpoint = $"api/Reserva/UpdateBooking/{reservaSeleccionada.BookingId}";
-                var requestData = new
+                // Mostrar un MessageBox de confirmación
+                DialogResult result = MessageBox.Show("¿Está seguro de cambiar el estado de la reserva?", "Confirmar cambio de estado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    bookingId = reservaSeleccionada.BookingId,
-                    bookingStatus = estadoReservaSeleccionado.StatusBookingName
-                };
-                string jsonRequest = JsonConvert.SerializeObject(requestData);
-                await apiManager.PutApiResponse(endpoint, jsonRequest);
+                    // Actualizar el estado de la reserva utilizando la API
+                    string endpoint = $"api/Reserva/UpdateBooking/{reservaSeleccionada.BookingId}";
+                    var requestData = new
+                    {
+                        bookingId = reservaSeleccionada.BookingId,
+                        bookingStatus = estadoReservaSeleccionado.StatusBookingName
+                    };
+                    string jsonRequest = JsonConvert.SerializeObject(requestData);
+                    await apiManager.PutApiResponse(endpoint, jsonRequest);
 
-                // Actualización exitosa
-                MessageBox.Show("Estado de reserva actualizado correctamente", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Actualización exitosa
+                    MessageBox.Show("Estado de reserva actualizado correctamente", "Actualización exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Volver a cargar las reservas para reflejar los cambios
-                await CargarReservas();
+                    // Volver a cargar las reservas para reflejar los cambios
+                    await CargarReservas();
+                }
             }
             catch (Exception ex)
             {

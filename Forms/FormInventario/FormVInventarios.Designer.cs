@@ -33,7 +33,13 @@
             tituloVInv = new Label();
             dataGridViewInventarios = new DataGridView();
             btnCargarDatos = new Button();
+            btnAgregarInventario = new Button();
+            label1 = new Label();
+            comboBoxCodDpto = new ComboBox();
+            tituloAInv = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridViewInventarios).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tituloVInv
@@ -78,7 +84,7 @@
             dataGridViewInventarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewInventarios.RowTemplate.Height = 24;
             dataGridViewInventarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewInventarios.Size = new Size(940, 594);
+            dataGridViewInventarios.Size = new Size(940, 244);
             dataGridViewInventarios.TabIndex = 3;
             // 
             // btnCargarDatos
@@ -93,11 +99,64 @@
             btnCargarDatos.UseVisualStyleBackColor = true;
             btnCargarDatos.Click += btnCargarDatos_Click;
             // 
+            // btnAgregarInventario
+            // 
+            btnAgregarInventario.Location = new Point(216, 218);
+            btnAgregarInventario.Name = "btnAgregarInventario";
+            btnAgregarInventario.Size = new Size(153, 29);
+            btnAgregarInventario.TabIndex = 8;
+            btnAgregarInventario.Text = "Añadir Inventario";
+            btnAgregarInventario.UseVisualStyleBackColor = true;
+            btnAgregarInventario.Click += btnAgregarInventario_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(90, 119);
+            label1.Name = "label1";
+            label1.Size = new Size(183, 20);
+            label1.TabIndex = 7;
+            label1.Text = "Código de Departamento:";
+            // 
+            // comboBoxCodDpto
+            // 
+            comboBoxCodDpto.FormattingEnabled = true;
+            comboBoxCodDpto.Location = new Point(285, 116);
+            comboBoxCodDpto.Name = "comboBoxCodDpto";
+            comboBoxCodDpto.Size = new Size(215, 28);
+            comboBoxCodDpto.TabIndex = 6;
+            comboBoxCodDpto.DropDown += comboBoxCodDpto_DropDown;
+            // 
+            // tituloAInv
+            // 
+            tituloAInv.AutoSize = true;
+            tituloAInv.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            tituloAInv.Location = new Point(180, 26);
+            tituloAInv.Name = "tituloAInv";
+            tituloAInv.Size = new Size(215, 20);
+            tituloAInv.TabIndex = 5;
+            tituloAInv.Text = "AGREGAR INVENTARIO";
+            tituloAInv.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(tituloAInv);
+            panel1.Controls.Add(btnAgregarInventario);
+            panel1.Controls.Add(comboBoxCodDpto);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(263, 398);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(566, 286);
+            panel1.TabIndex = 9;
+            // 
             // FormVInventarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1076, 736);
+            Controls.Add(panel1);
             Controls.Add(btnCargarDatos);
             Controls.Add(dataGridViewInventarios);
             Controls.Add(tituloVInv);
@@ -107,6 +166,8 @@
             Text = "FormVInventario";
             Load += FormVInventarios_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewInventarios).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +177,10 @@
         private Label tituloVInv;
         private DataGridView dataGridViewInventarios;
         private Button btnCargarDatos;
+        private Button btnAgregarInventario;
+        private Label label1;
+        private ComboBox comboBoxCodDpto;
+        private Label tituloAInv;
+        private Panel panel1;
     }
 }
