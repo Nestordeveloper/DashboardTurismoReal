@@ -26,8 +26,8 @@ namespace DashboardTurismoReal
                 .Build();
 
             // Pasar la configuración al crear una instancia de MainForm
-            //Application.Run(new FormLogin());
-            Application.Run(new MainForm(configuration));
+            Application.Run(new FormLogin());
+            //Application.Run(new MainForm(configuration));
         }
     }
 }

@@ -51,12 +51,18 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            btnUpdateFoto = new Button();
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
+            btnUpdateF4 = new Button();
             label11 = new Label();
+            btnUpdateF3 = new Button();
             label12 = new Label();
+            btnUpdateF2 = new Button();
+            comboBoxDptoUpdate = new ComboBox();
+            btnUpdateF1 = new Button();
             dataGridViewFotosDpto = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -270,23 +276,39 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Right;
+            panel2.Anchor = AnchorStyles.Left;
             panel2.BorderStyle = BorderStyle.Fixed3D;
+            panel2.Controls.Add(btnUpdateFoto);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(label10);
+            panel2.Controls.Add(btnUpdateF4);
             panel2.Controls.Add(label11);
+            panel2.Controls.Add(btnUpdateF3);
             panel2.Controls.Add(label12);
+            panel2.Controls.Add(btnUpdateF2);
+            panel2.Controls.Add(comboBoxDptoUpdate);
+            panel2.Controls.Add(btnUpdateF1);
             panel2.Location = new Point(543, 304);
             panel2.Name = "panel2";
             panel2.Size = new Size(473, 476);
             panel2.TabIndex = 11;
             // 
+            // btnUpdateFoto
+            // 
+            btnUpdateFoto.Location = new Point(179, 408);
+            btnUpdateFoto.Name = "btnUpdateFoto";
+            btnUpdateFoto.Size = new Size(171, 40);
+            btnUpdateFoto.TabIndex = 18;
+            btnUpdateFoto.Text = "Actualizar Fotos";
+            btnUpdateFoto.UseVisualStyleBackColor = true;
+            btnUpdateFoto.Click += btnUpdateFoto_Click;
+            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(34, 342);
+            label7.Location = new Point(19, 342);
             label7.Name = "label7";
             label7.Size = new Size(133, 20);
             label7.TabIndex = 5;
@@ -295,7 +317,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(34, 258);
+            label8.Location = new Point(19, 258);
             label8.Name = "label8";
             label8.Size = new Size(133, 20);
             label8.TabIndex = 4;
@@ -304,7 +326,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(34, 179);
+            label9.Location = new Point(19, 179);
             label9.Name = "label9";
             label9.Size = new Size(133, 20);
             label9.TabIndex = 3;
@@ -313,20 +335,40 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(34, 108);
+            label10.Location = new Point(19, 108);
             label10.Name = "label10";
             label10.Size = new Size(133, 20);
             label10.TabIndex = 2;
             label10.Text = "Actualizar Foto #1:";
             // 
+            // btnUpdateF4
+            // 
+            btnUpdateF4.Location = new Point(257, 336);
+            btnUpdateF4.Name = "btnUpdateF4";
+            btnUpdateF4.Size = new Size(194, 29);
+            btnUpdateF4.TabIndex = 22;
+            btnUpdateF4.Text = "Seleccionar Foto #4";
+            btnUpdateF4.UseVisualStyleBackColor = true;
+            btnUpdateF4.Click += btnUpdateF4_Click;
+            // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(34, 56);
+            label11.Location = new Point(19, 56);
             label11.Name = "label11";
             label11.Size = new Size(189, 20);
             label11.TabIndex = 1;
             label11.Text = "Seleccionar Departamento:";
+            // 
+            // btnUpdateF3
+            // 
+            btnUpdateF3.Location = new Point(257, 257);
+            btnUpdateF3.Name = "btnUpdateF3";
+            btnUpdateF3.Size = new Size(194, 29);
+            btnUpdateF3.TabIndex = 21;
+            btnUpdateF3.Text = "Seleccionar Foto #3";
+            btnUpdateF3.UseVisualStyleBackColor = true;
+            btnUpdateF3.Click += btnUpdateF3_Click;
             // 
             // label12
             // 
@@ -337,6 +379,34 @@
             label12.Size = new Size(200, 28);
             label12.TabIndex = 0;
             label12.Text = "ACTUALIZAR FOTOS";
+            // 
+            // btnUpdateF2
+            // 
+            btnUpdateF2.Location = new Point(257, 178);
+            btnUpdateF2.Name = "btnUpdateF2";
+            btnUpdateF2.Size = new Size(194, 29);
+            btnUpdateF2.TabIndex = 20;
+            btnUpdateF2.Text = "Seleccionar Foto #2";
+            btnUpdateF2.UseVisualStyleBackColor = true;
+            btnUpdateF2.Click += btnUpdateF2_Click;
+            // 
+            // comboBoxDptoUpdate
+            // 
+            comboBoxDptoUpdate.FormattingEnabled = true;
+            comboBoxDptoUpdate.Location = new Point(257, 56);
+            comboBoxDptoUpdate.Name = "comboBoxDptoUpdate";
+            comboBoxDptoUpdate.Size = new Size(194, 28);
+            comboBoxDptoUpdate.TabIndex = 18;
+            // 
+            // btnUpdateF1
+            // 
+            btnUpdateF1.Location = new Point(257, 102);
+            btnUpdateF1.Name = "btnUpdateF1";
+            btnUpdateF1.Size = new Size(194, 29);
+            btnUpdateF1.TabIndex = 19;
+            btnUpdateF1.Text = "Seleccionar Foto #1";
+            btnUpdateF1.UseVisualStyleBackColor = true;
+            btnUpdateF1.Click += btnUpdateF1_Click;
             // 
             // dataGridViewFotosDpto
             // 
@@ -435,5 +505,11 @@
         private Label label15;
         private Label labelRutaFoto3;
         private Label labelRutaFoto2;
+        private Button btnUpdateF4;
+        private Button btnUpdateF3;
+        private Button btnUpdateF2;
+        private ComboBox comboBoxDptoUpdate;
+        private Button btnUpdateF1;
+        private Button btnUpdateFoto;
     }
 }

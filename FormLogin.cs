@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DashboardTurismoReal.Models;
 
 namespace DashboardTurismoReal
 {
@@ -120,37 +121,48 @@ namespace DashboardTurismoReal
                 string correoElectronico = txtCorreoElectronico.Text;
                 string contrasena = txtContrasena.Text;
 
-                // Crear un objeto anónimo para enviar como cuerpo de la solicitud
-                var requestData = new
+                // Verificar que se haya ingresado un correo y una contraseña
+                if (string.IsNullOrWhiteSpace(correoElectronico) || string.IsNullOrWhiteSpace(contrasena))
+                {
+                    MessageBox.Show("Por favor, ingrese un correo y una contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Crear un objeto de tipo Usuario para enviar como cuerpo de la solicitud
+                Usuario usuario = new Usuario
                 {
                     Email = correoElectronico,
+                    idRol = 3,
                     Password = contrasena
                 };
 
-                // Convertir el objeto en formato JSON
-                string jsonRequest = JsonConvert.SerializeObject(requestData);
-
                 // Realizar la solicitud POST a la API
-                string endpoint = "/api/Usuario/LoginAdmin";
+                string endpoint = "api/Usuario/LoginAdmin";
+                string jsonRequest = JsonConvert.SerializeObject(usuario);
                 string responseData = await apiManager.PostApiResponse(endpoint, jsonRequest);
 
                 // Analizar la respuesta JSON
                 dynamic response = JsonConvert.DeserializeObject(responseData);
 
-                if (response != null && response.resultado != null && response.mensaje != null)
+                // Verificar si se recibió un token válido
+                if (response != null && response["token"] != null)
                 {
-                    bool resultado = response.resultado;
-                    string mensaje = response.mensaje;
+                    string token = response["token"];
 
-                    if (resultado)
+                    // Obtener el rol del usuario
+                    string rol = await ObtenerRol(correoElectronico);
+
+                    // Verificar si el rol es "Administrador"
+                    if (rol == "Administrador")
                     {
-                        // Inicio de sesión exitoso como administrador
-                        MessageBox.Show(mensaje, "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Redirigir al formulario MainForm
+                        // Inicio de sesión exitoso
+                        MessageBox.Show("Inicio de sesión exitoso", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Por ejemplo, puedes pasar el token y el rol al formulario MainForm
                         IConfiguration configuration = new ConfigurationBuilder()
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                             .Build();
-                        MainForm mainForm = new MainForm(configuration);
+                        MainForm mainForm = new MainForm(configuration, token, rol);
                         mainForm.Show();
 
                         // Cerrar el formulario de inicio de sesión
@@ -158,14 +170,14 @@ namespace DashboardTurismoReal
                     }
                     else
                     {
-                        // Inicio de sesión fallido
-                        MessageBox.Show(mensaje, "Inicio de sesión fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // El usuario no tiene el rol de "Administrador"
+                        MessageBox.Show("No tienes permisos suficientes para iniciar sesión como Administrador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    // La respuesta JSON no contiene las propiedades esperadas
-                    MessageBox.Show("Respuesta inválida del servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // La respuesta JSON no contiene un token válido
+                    MessageBox.Show("Credenciales inválidas. Inicio de sesión fallido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -173,6 +185,38 @@ namespace DashboardTurismoReal
                 MessageBox.Show("Error al realizar el inicio de sesión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+        private async Task<string> ObtenerRol(string correoElectronico)
+        {
+            try
+            {
+                // Realizar la solicitud GET a la API para obtener el usuario por correo electrónico
+                string endpoint = $"api/Usuario/LoginGetUsuario/{correoElectronico}";
+                string responseData = await apiManager.GetApiResponse(endpoint);
+
+                // Analizar la respuesta JSON
+                dynamic response = JsonConvert.DeserializeObject(responseData);
+
+                if (response != null && response["rol"] != null)
+                {
+                    string rol = response["rol"];
+                    return rol;
+                }
+                else
+                {
+                    // No se pudo obtener el rol del usuario
+                    throw new Exception("No se pudo obtener el rol del usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier error de solicitud o análisis de respuesta
+                throw new Exception("Error al obtener el rol del usuario: " + ex.Message);
+            }
+        }
+
 
 
         /*

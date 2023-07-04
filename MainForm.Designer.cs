@@ -519,6 +519,7 @@
             btnLogOut.SizeMode = PictureBoxSizeMode.Zoom;
             btnLogOut.TabIndex = 25;
             btnLogOut.TabStop = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnChecks
             // 

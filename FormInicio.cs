@@ -35,6 +35,14 @@ namespace DashboardTurismoReal
                 lblReservas.Text = dashboard.BookingTotal.ToString();
                 lblDepartamentos.Text = dashboard.DepartmentTotal.ToString();
                 lblIngresos.Text = "$" + dashboard.PayValue;
+                lblReservasDia.Text = dashboard.BookingsDay.ToString();
+                lblReservasSemana.Text = dashboard.BookingsWeek.ToString();
+                lblReservasMes.Text = dashboard.BookingsMonth.ToString();
+                lblReservasAno.Text = dashboard.BookingsYear.ToString();
+                lblIngresosDia.Text = "$" + dashboard.IncomeDay;
+                lblIngresosSemana.Text = "$" + dashboard.IncomeWeek;
+                lblIngresosMes.Text = "$" + dashboard.IncomeMonth;
+                lblIngresosAno.Text = "$" + dashboard.IncomeYear;
             }
             catch (Exception ex)
             {

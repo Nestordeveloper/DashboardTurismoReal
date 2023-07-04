@@ -78,7 +78,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridViewCheckOut.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCheckOut.GridColor = Color.DarkGoldenrod;
-            dataGridViewCheckOut.Location = new Point(72, 116);
+            dataGridViewCheckOut.Location = new Point(51, 116);
             dataGridViewCheckOut.Margin = new Padding(3, 4, 3, 4);
             dataGridViewCheckOut.Name = "dataGridViewCheckOut";
             dataGridViewCheckOut.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -91,7 +91,7 @@
             dataGridViewCheckOut.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCheckOut.RowTemplate.Height = 24;
             dataGridViewCheckOut.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCheckOut.Size = new Size(928, 211);
+            dataGridViewCheckOut.Size = new Size(949, 447);
             dataGridViewCheckOut.TabIndex = 4;
             // 
             // btnCargarDatos

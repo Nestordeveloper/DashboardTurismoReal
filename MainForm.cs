@@ -29,12 +29,15 @@ namespace DashboardTurismoReal
 
         private IConfiguration _configuration;
         private bool _subMenuVisible = false;
-
-        public MainForm(IConfiguration configuration)
+        private string token;
+        private string rol;
+        public MainForm(IConfiguration configuration, string token, string rol)
         {
             InitializeComponent();
             BarraTitulo.MouseDown += PanelBarraTitulo_MouseDown;
             _configuration = configuration;
+            this.token = token;
+            this.rol = rol;
 
             // Suscribir el formulario principal al evento MouseDown
             this.MouseDown += MainForm_MouseDown;
@@ -352,5 +355,16 @@ namespace DashboardTurismoReal
                 subMenuInventario.Visible = false;
             }
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario de inicio de sesión
+            FormLogin formLogin = new FormLogin();
+
+            // Mostrar el formulario de inicio de sesión y cerrar el formulario actual
+            formLogin.Show();
+            this.Close();
+        }
+
     }
 }

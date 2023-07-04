@@ -33,6 +33,7 @@ namespace DashboardTurismoReal.Forms.FormDepartamento
             {
                 await CargarFotosDepartamentos();
                 await CargarDepartamentos();
+                await CargarDepartamentosUpdate();
             }
             catch (Exception ex)
             {
@@ -67,6 +68,24 @@ namespace DashboardTurismoReal.Forms.FormDepartamento
                 comboBoxADDepartamento.DataSource = departamentos;
                 comboBoxADDepartamento.DisplayMember = "DepartmentCod";
                 comboBoxADDepartamento.ValueMember = "DepartmentCod";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de Departamento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task CargarDepartamentosUpdate()
+        {
+            try
+            {
+                string responseData = await apiManager.GetApiResponse("api/Departamento/GetAllDepartamentos");
+
+                List<Departamento> departamentos = JsonConvert.DeserializeObject<List<Departamento>>(responseData);
+
+                comboBoxDptoUpdate.DataSource = departamentos;
+                comboBoxDptoUpdate.DisplayMember = "DepartmentCod";
+                comboBoxDptoUpdate.ValueMember = "DepartmentCod";
             }
             catch (Exception ex)
             {
@@ -223,6 +242,68 @@ namespace DashboardTurismoReal.Forms.FormDepartamento
                 MessageBox.Show("Error al agregar las fotos al departamento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // ACTUALIZAR FOTO DEPARTAMENTO
+
+        private async void btnUpdateFoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el código del departamento seleccionado
+                Departamento departamento = (Departamento)comboBoxDptoUpdate.SelectedItem;
+                string departmentCod = departamento.DepartmentCod;
+
+                // Obtener los bytes de las fotos seleccionadas
+                byte[] photo1Bytes = GetPhotoBytes(fotoRutas[0]);
+                byte[] photo2Bytes = GetPhotoBytes(fotoRutas[1]);
+                byte[] photo3Bytes = GetPhotoBytes(fotoRutas[2]);
+                byte[] photo4Bytes = GetPhotoBytes(fotoRutas[3]);
+
+                // Crear el objeto FotosDepartamento con los datos del departamento y las fotos
+                FotosDepartamento fotosDepartamento = new FotosDepartamento
+                {
+                    DepartmentCod = departmentCod,
+                    Photo1 = photo1Bytes,
+                    Photo2 = photo2Bytes,
+                    Photo3 = photo3Bytes,
+                    Photo4 = photo4Bytes
+                };
+
+                // Serializar el objeto FotosDepartamento a JSON
+                string jsonData = JsonConvert.SerializeObject(fotosDepartamento);
+
+                // Enviar la solicitud PUT a la API para actualizar las fotos del departamento
+                string responseData = await apiManager.PutApiResponse($"api/Departamento/UpdateFotoDepartamento/{departmentCod}", jsonData);
+
+                // Mostrar mensaje de éxito
+                MessageBox.Show("Las fotos se han actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar las fotos del departamento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdateF1_Click(object sender, EventArgs e)
+        {
+            SeleccionarFoto(0);
+        }
+
+        private void btnUpdateF2_Click(object sender, EventArgs e)
+        {
+            SeleccionarFoto(1);
+        }
+
+        private void btnUpdateF3_Click(object sender, EventArgs e)
+        {
+            SeleccionarFoto(2);
+        }
+
+        private void btnUpdateF4_Click(object sender, EventArgs e)
+        {
+            SeleccionarFoto(3);
+        }
+
 
         private byte[] GetPhotoBytes(string rutaFoto)
         {

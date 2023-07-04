@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DashboardTurismoReal.Models;
+using Newtonsoft.Json;
+using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,6 +40,23 @@ namespace DashboardTurismoReal
                 throw new Exception("Error al obtener la respuesta de la API: " + ex.Message);
             }
         }
+        public async Task<string> PostApiResponseLog(string endpoint, string jsonRequest, string authorizationHeader)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(apiUrl);
+
+            // Establecer el encabezado de autorización
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorizationHeader);
+
+            // Realizar la solicitud POST
+            HttpResponseMessage response = await client.PostAsync(endpoint, new StringContent(jsonRequest, Encoding.UTF8, "application/json"));
+
+            // Leer la respuesta
+            string responseData = await response.Content.ReadAsStringAsync();
+
+            return responseData;
+        }
+
 
         public async Task<string> PostApiResponse(string endpoint, string jsonData)
         {

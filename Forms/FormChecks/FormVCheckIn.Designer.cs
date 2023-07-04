@@ -91,7 +91,7 @@
             dataGridViewCheckIn.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCheckIn.RowTemplate.Height = 24;
             dataGridViewCheckIn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCheckIn.Size = new Size(1041, 211);
+            dataGridViewCheckIn.Size = new Size(1041, 466);
             dataGridViewCheckIn.TabIndex = 3;
             // 
             // btnCargarDatos
