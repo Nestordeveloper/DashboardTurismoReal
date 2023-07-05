@@ -40,6 +40,8 @@ namespace DashboardTurismoReal
                 throw new Exception("Error al obtener la respuesta de la API: " + ex.Message);
             }
         }
+
+
         public async Task<string> PostApiResponseLog(string endpoint, string jsonRequest, string authorizationHeader)
         {
             HttpClient client = new HttpClient();
@@ -56,6 +58,7 @@ namespace DashboardTurismoReal
 
             return responseData;
         }
+
 
 
         public async Task<string> PostApiResponse(string endpoint, string jsonData)
@@ -80,6 +83,7 @@ namespace DashboardTurismoReal
                 throw new Exception("Error al obtener la respuesta de la API: " + ex.Message);
             }
         }
+
 
         public async Task<string> PutApiResponse(string endpoint, string jsonData)
         {

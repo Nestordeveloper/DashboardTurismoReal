@@ -511,6 +511,7 @@
             // 
             // btnLogOut
             // 
+            btnLogOut.Cursor = Cursors.Hand;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.Location = new Point(16, 983);
             btnLogOut.Margin = new Padding(4, 5, 4, 5);

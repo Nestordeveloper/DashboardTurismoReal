@@ -173,6 +173,7 @@
             // 
             // btnLogin
             // 
+            btnLogin.Cursor = Cursors.Hand;
             btnLogin.Location = new Point(388, 374);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(134, 29);

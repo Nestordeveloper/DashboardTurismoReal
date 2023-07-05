@@ -153,7 +153,7 @@ namespace DashboardTurismoReal
                     string rol = await ObtenerRol(correoElectronico);
 
                     // Verificar si el rol es "Administrador"
-                    if (rol == "Administrador")
+                    if (rol == "Administrador" || rol == "Funcionario")
                     {
                         // Inicio de sesión exitoso
                         MessageBox.Show("Inicio de sesión exitoso", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);

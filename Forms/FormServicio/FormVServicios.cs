@@ -108,7 +108,7 @@ namespace DashboardTurismoReal.FormServicio
         {
             try
             {
-                string responseData = await apiManager.GetApiResponse("api/ServicioDepartamento");
+                string responseData = await apiManager.GetApiResponse("api/ServicioDepartamento/GetAllServicioDepartamento");
 
                 List<ServicioDepartamento> servicioDepartamentos = JsonConvert.DeserializeObject<List<ServicioDepartamento>>(responseData);
 
@@ -176,40 +176,18 @@ namespace DashboardTurismoReal.FormServicio
         {
             try
             {
-                string departmentCode = comboBoxDpto.Text;
-                int serviceId = Convert.ToInt32(comboBoxDptoServicio.Text);
-
-                Departamento departamento = departamentos.FirstOrDefault(d => d.DepartmentCod == departmentCode);
-                if (departamento == null)
-                {
-                    MessageBox.Show("El departamento con código " + departmentCode + " no existe.", "Departamento no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                Servicio servicio = servicios.FirstOrDefault(s => s.ServiceId == serviceId);
-                if (servicio == null)
-                {
-                    MessageBox.Show("El servicio con ID " + serviceId + " no existe.", "Servicio no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Verificar si el servicio ya está asociado al departamento
-                bool isAlreadyAssigned = await CheckServiceDepartmentAssignment(departmentCode, serviceId);
-                if (isAlreadyAssigned)
-                {
-                    MessageBox.Show("El servicio ya está asociado al departamento.", "Asignación duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                string departmentId = comboBoxDpto.SelectedValue.ToString();
+                int serviceId = Convert.ToInt32(comboBoxDptoServicio.SelectedValue);
 
                 ServicioDepartamento servicioDepartamento = new ServicioDepartamento
                 {
-                    DepartmentId = departamento.DepartmentCod,
-                    ServiceId = serviceId
+                    ServiceId = serviceId,
+                    DepartmentId = departmentId
                 };
 
-                string requestData = JsonConvert.SerializeObject(servicioDepartamento);
-                string responseData = await apiManager.PostApiResponse("api/ServicioDepartamento", requestData);
-                Console.WriteLine(responseData);
+                string jsonData = JsonConvert.SerializeObject(servicioDepartamento);
+
+                string responseData = await apiManager.PostApiResponse("api/ServicioDepartamento/CreateServicioDepartamento", jsonData);
 
                 MessageBox.Show("El servicio se asignó correctamente al departamento.", "Servicio asignado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -219,9 +197,11 @@ namespace DashboardTurismoReal.FormServicio
             }
         }
 
+
+
         private async Task<bool> CheckServiceDepartmentAssignment(string departmentCode, int serviceId)
         {
-            string endpoint = $"api/ServicioDepartamento/{departmentCode}/{serviceId}";
+            string endpoint = $"api/ServicioDepartamento/GetServicioDepartamento/{departmentCode}/{serviceId}";
             string responseData = await apiManager.GetApiResponse(endpoint);
             return !string.IsNullOrEmpty(responseData);
         }
@@ -239,6 +219,5 @@ namespace DashboardTurismoReal.FormServicio
 
             return servicios;
         }
-
     }
 }
