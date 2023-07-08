@@ -2,7 +2,12 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Windows.Forms;
-
+/*
+ * Autor: Néstor Ignacio Larenas Ortega
+ * Fecha: 05/07/2023
+ * Copyright (c) 2023
+ * Licencia: Derechos Reservados.
+ */
 namespace DashboardTurismoReal
 {
     internal static class Program
